@@ -45,6 +45,8 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 BinbinHfr Reaper's Scripts Repository\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyricator : import and display smootly scrollable lyrics in a specfic window\sa180\par}
 }
 ]]></description>
   </metadata>
