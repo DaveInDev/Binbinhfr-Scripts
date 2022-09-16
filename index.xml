@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="9ad23b9c5a276e75c34e3e81ed74202cb51b5ca5">
+<index version="1" name="BinbinHfr Scripts" commit="cec2de1336dbbaad505215ad74005725e0aa0c3c">
+  <category name="Jsfx">
+    <reapack name="MidiKeyboardSensitivity.jsfx" type="effect" desc="MIDI Keyboard Sensivity">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 MIDI Keyboard Sensivity\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the sensitivity of the MIDI input, i.e. the relation between keyboard touch and velocity. Values : 0-4:light touch, 5: normal touch, 6-9:heavy touch, 10: constant touch\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="BinbinHfr" time="2022-09-16T22:52:59Z">
+        <changelog><![CDATA[v1.0 initial release]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/cec2de1336dbbaad505215ad74005725e0aa0c3c/Jsfx/MidiKeyboardSensitivity.jsfx</source>
+      </version>
+    </reapack>
+  </category>
   <category name="lyricator">
     <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator">
       <metadata>
