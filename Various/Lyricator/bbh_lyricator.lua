@@ -27,6 +27,8 @@
 --   + On the contrary, when the project is stopped, the window size is reduced to allow easy editing of the tracks underneath.
 --   + You can disable this behaviour with the "auto resize" options, if you want.
 --   + You can also change the fonts sizes.
+--   + You can change the colors of lines, depending on their status (reading, preparing, offline)
+--   + You can choose how many lines you want to see before of after the current one.
 --   + You can change the position and size of the window in both playing/stopped modes. 
 --   + You can change the default duration of a lyric item, and the default duration of the gap between lyric items.
 --   + All these choices/options are memorized for the next reaper session.
