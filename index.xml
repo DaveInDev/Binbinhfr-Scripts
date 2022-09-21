@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="d94493016b7cfecbeb3d4dba28f35d26457e0df9">
+<index version="1" name="BinbinHfr Scripts" commit="13995ff7f3e70eaca9335c73110e7607e35672f6">
+  <category name="Arrange">
+    <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script can be link to the mousewheel (wit shift for example), to trigger the horizontal zoom, but with an adaptative beheviour, that zooms slowly when the view is large, and quickly if the view is tight.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab The strenght of the effect can be modified at the beginning of the script\sa180\par}
+}
+]]></description>
+        <link rel="website">https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-21T22:31:50Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/bc7d5f7235badd2c0cb24f07295e4c3ccbe878df/Arrange/bbh_zoomwheel.lua</source>
+      </version>
+    </reapack>
+  </category>
   <category name="Item Editing">
     <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean selected items of useless sustain pedal CC64">
       <metadata>
@@ -16,6 +35,22 @@
       <version name="1.0" author="binbinhfr" time="2022-09-21T19:13:12Z">
         <changelog><![CDATA[+ v1.0 initial release]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/927be8f1a802382b1e2a1b9e610f48045645efe7/Item%20Editing/bbh_clean_sustain_cc.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_midi_items_transpose.lua" type="script" desc="Midi items transpose">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script transposes selected items by a number of semitones\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-21T22:32:23Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/13995ff7f3e70eaca9335c73110e7607e35672f6/Item%20Editing/bbh_midi_items_transpose.lua</source>
       </version>
     </reapack>
   </category>
