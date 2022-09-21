@@ -1,4 +1,4 @@
--- @description Lyricator
+-- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
 -- @version 1.4
 -- @links
