@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="7f252e260da819d657aa6261da85f46687adf017">
+<index version="1" name="BinbinHfr Scripts" commit="7db53732d076b4bb5ca3fec039f9104694b983b4">
   <category name="Item Editing">
     <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
       <metadata>
@@ -55,6 +55,8 @@
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab On the contrary, when the project is stopped, the window size is reduced to allow easy editing of the tracks underneath.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can disable this behaviour with the "auto resize" options, if you want.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can also change the fonts sizes.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the colors of lines, depending on their status (reading, preparing, offline)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can choose how many lines you want to see before of after the current one.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the position and size of the window in both playing/stopped modes.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the default duration of a lyric item, and the default duration of the gap between lyric items.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab All these choices/options are memorized for the next reaper session.\par}
@@ -93,8 +95,9 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 BinbinHfr Reaper's Scripts Repository\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, import my repository into your Reapack : https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a specfic window\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean useless suatin pedal CC (between 1 and 126)\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean useless sustain pedal CC (between 1 and 126)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_items_transpose : transpose any selected item by a number of semitones\sa180\par}
 }
 ]]></description>
   </metadata>
