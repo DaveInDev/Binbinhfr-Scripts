@@ -1,12 +1,18 @@
 # BinbinHfr Reaper's Scripts Repository
 
-To install these scripts, import my repository into your Reapack, and search for "binbinhfr" :
+To install these scripts, you need to have Reapack installed. Get it here :
+
+https://reapack.com/
+
+And then, import my repository into your Reapack :
 
 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 
 This link explains how to do it :
 
 https://reapack.com/user-guide#import-repositories
+
+Then search for "binbinhfr" in the package list.
 
 Available scripts :
 - bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window
