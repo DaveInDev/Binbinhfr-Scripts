@@ -1,0 +1,42 @@
+desc: Bbh MIDI Velocity Compressor with AutoGain
+// version: 1.0
+// author: binbinhfr
+
+slider1:64<0,127,1>Threshold
+slider2:1<0.1,10,0.1>Ratio
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+
+@slider
+  threshold=slider1;
+  ratio=slider2;
+  auto_gain = 127 / (threshold + (127-threshold) / ratio);
+
+@block
+  while (
+    midirecv(msg_offs, msg1, msg2, msg3) ? (
+      ((msg1 & $xF0) == $x90) ? (
+        (msg3 > threshold) ? (
+          newvel = (threshold + (msg3-threshold) / ratio);
+        ) : (
+          newvel = msg3;
+        );
+        newvel *= auto_gain;
+        (newvel > 127) ? newvel = 127;
+        midisend(msg_offs, msg1, msg2, newvel);
+      ) : (
+        // pass thru non "note on" messages
+         midisend(msg_offs, msg1, msg2, msg3);
+      );
+    );
+  );
+
+@sample
+  spl0 = spl0;
+  spl1 = spl1;
+
