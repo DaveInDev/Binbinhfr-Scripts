@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="cec2de1336dbbaad505215ad74005725e0aa0c3c">
+<index version="1" name="BinbinHfr Scripts" commit="d81e91dff37a90f9512c9e8fefafe3c0da80a010">
   <category name="Jsfx">
     <reapack name="MidiKeyboardSensitivity.jsfx" type="effect" desc="MIDI Keyboard Sensivity">
       <metadata>
@@ -54,6 +54,25 @@
        separate auto_resize options for playing and recording
 + v1.3 possibility to customize colors.]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d7c37f10f90841c581f9d379322fb49baba1c6d9/lyricator/bbh_lyricator.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="various">
+    <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script clean useless MIDI CC 64 between 1 and 126 and keeps 0 and 127.\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://forum.cockos.com/showthread.php?t=270885">Forum Thread https:</link>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-21T18:55:51Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d81e91dff37a90f9512c9e8fefafe3c0da80a010/various/bbh_clean_sustain_cc.lua</source>
       </version>
     </reapack>
   </category>
