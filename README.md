@@ -4,7 +4,7 @@ To install these scripts, import my repository into your Reapack :
 
 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 
-Here is how to do it :
+This link explains how to do it :
 
 https://reapack.com/user-guide#import-repositories
 
