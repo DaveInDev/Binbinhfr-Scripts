@@ -9,7 +9,7 @@
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
---   + This script transposes any selected item by a number of semitones
+--   + This script transposes selected items by a number of semitones
 
 local nb_items = reaper.CountSelectedMediaItems(0)
 if nb_items == 0 then return end
@@ -45,4 +45,5 @@ end
 
 reaper.PreventUIRefresh(-1)
 reaper.Undo_EndBlock("transpose selected track audio items or midi items notes", -1)
+
 

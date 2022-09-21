@@ -1,4 +1,4 @@
--- @description Clean Sustain Pedal CC
+-- @description Clean selected items of useless sustain pedal CC64
 -- @author binbinhfr
 -- @version 1.0
 -- @links
@@ -9,7 +9,7 @@
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
---   + This script clean useless MIDI CC 64 between 1 and 126 and keeps 0 and 127.
+--   + This script cleans selected items of useless sustain pedal CC64 (between 1 and 126)
 
 ----------------------------------------------------------------------------------------------------------
 do_debug = false
