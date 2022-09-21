@@ -2,7 +2,6 @@
 -- @author binbinhfr
 -- @version 1.0
 -- @links
---   Forum Thread 
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 -- @changelog
 --    + v1.0 initial release
