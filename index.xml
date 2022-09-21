@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="e319aab551bcfe4064816cc50c8e58c4549e7dbe">
+<index version="1" name="BinbinHfr Scripts" commit="f4ccfb9918c426491ca6ad0bcfc5de6f85bc0047">
   <category name="Item Editing">
     <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean selected items of useless sustain pedal CC64">
       <metadata>
@@ -37,7 +37,7 @@
       </version>
     </reapack>
   </category>
-  <category name="Various/Lyricator">
+  <category name="Various">
     <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator (display smoothly scrolling lyrics in a separate window)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -68,22 +68,14 @@
         <link rel="website" href="https://forum.cockos.com/showthread.php?t=270738">Forum Thread</link>
         <link rel="website">https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml</link>
       </metadata>
-      <version name="1.3" author="binbinhfr" time="2022-09-21T19:30:28Z">
-        <changelog><![CDATA[+ v1.0 initial release
-+ v1.1 correct default opening path, docking problems
-+ v1.2 pre color next line, 
-       separate auto_resize options for playing and recording
-+ v1.3 possibility to customize colors.]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/a6390b30146dd6e2ec1045f3498fb8e49b570303/Various/Lyricator/bbh_lyricator.lua</source>
-      </version>
-      <version name="1.4" author="binbinhfr" time="2022-09-21T20:04:24Z">
+      <version name="1.4" author="binbinhfr" time="2022-09-21T21:32:42Z">
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 correct default opening path, docking problems
 + v1.2 pre color next line, 
        separate auto_resize options for playing and recording
 + v1.3 possibility to customize colors.
 + v1.4 option to choose number of visible lines before and after current one.]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/7f252e260da819d657aa6261da85f46687adf017/Various/Lyricator/bbh_lyricator.lua</source>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/f4ccfb9918c426491ca6ad0bcfc5de6f85bc0047/Various/bbh_lyricator.lua</source>
       </version>
     </reapack>
   </category>
