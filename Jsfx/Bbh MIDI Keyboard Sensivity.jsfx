@@ -1,0 +1,61 @@
+desc: MIDI Keyboard Sensivity
+// version: 1.0
+// author: binbinhfr
+// about:
+//   # MIDI Keyboard Sensivity
+//   Change the sensitivity of the MIDI input, i.e. the relation between keyboard touch and velocity.
+//   Values : 0-4:light touch, 5: normal touch, 6-9:heavy touch, 10: constant touch
+// changelog:
+//   v1.0 initial release
+
+slider1:5<0,10,1>Sensivity (0-4:light, 5:norm, 6-9:heavy, 10:cst)
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+  powers = 0;
+  powers[0] = 5.0;
+  powers[1] = 3.6;
+  powers[2] = 2.4;
+  powers[3] = 1.75;
+  powers[4] = 1.32;
+  powers[5] = 1.0;
+  powers[6] = 0.65;
+  powers[7] = 0.4;
+  powers[8] = 0.25;
+  powers[9] = 0.15;
+  
+  sens = 5;
+  power = 1;
+  
+@slider
+  sens=slider1;
+  power = powers[sens];
+
+@block
+  while (
+    midirecv(msg_offs, msg1, msg2, msg3) ? (
+      ((msg1 & $xF0) == $x90) ? ( 
+        vel = msg3;
+        (sens == 10) ? (
+          newvel = 127;
+        ) : (
+          newvel = 127 * ((vel/127)^power);
+        );
+        (newvel > 127) ? newvel = 127;
+        midisend(msg_offs, msg1, msg2, newvel);
+      ) : 
+      (
+        // pass thru non "note on" messages
+         midisend(msg_offs, msg1, msg2, msg3);
+      );
+    );
+  );
+
+@sample
+  spl0 = spl0;
+  spl1 = spl1;
+
