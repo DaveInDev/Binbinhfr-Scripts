@@ -1,6 +1,6 @@
 # BinbinHfr Reaper's Scripts Repository
 
-To install these scripts, import my repository into your Reapack :
+To install these scripts, import my repository into your Reapack, and search for "binbinhfr" :
 
 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 
