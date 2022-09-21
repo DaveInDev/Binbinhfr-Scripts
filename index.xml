@@ -93,7 +93,8 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 BinbinHfr Reaper's Scripts Repository\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, import my repository into your Reapack : https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, import my repository into your Reapack :\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
