@@ -1,6 +1,6 @@
 # BinbinHfr Reaper's Scripts Repository
 
-To install these scripts, you need to have Reapack installed. Get it here :
+To install these scripts, you need to have ReaPack installed. Get it here :
 
 https://reapack.com/
 
