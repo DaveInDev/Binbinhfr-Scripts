@@ -1,6 +1,6 @@
 -- @description Lyricator
 -- @author binbinhfr
--- @version 1.3
+-- @version 1.4
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
