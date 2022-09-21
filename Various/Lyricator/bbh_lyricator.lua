@@ -10,6 +10,7 @@
 --    + v1.2 pre color next line, 
 --           separate auto_resize options for playing and recording
 --    + v1.3 possibility to customize colors.
+--    + v1.4 option to choose number of visible lines before and after current one.
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
@@ -29,7 +30,7 @@
 --   + You can change the position and size of the window in both playing/stopped modes. 
 --   + You can change the default duration of a lyric item, and the default duration of the gap between lyric items.
 --   + All these choices/options are memorized for the next reaper session.
---   + Note that the first track called "Lyrics" is taken into account, so you can have several tracks scalled "Lyrics";
+--   + Note that the first track  called "Lyrics" is taken into account, so you can have several tracks scalled "Lyrics";
 --     just put the active one in the upper position.
 --   + To avoid useless cpu work, note that, if you modify the lyric track during playback, the display is not updated.
 --     you have to stop and resume playback to refresh the lyrics.
@@ -57,9 +58,12 @@ auto_resize_recording = 1
 track_lyrics = nil
 track_lyrics_name = "Lyrics"
 
-color_offline = {0.55,0.55,0.55}
-color_preparing = {0.75,0.8,0.75}
+color_offline = {0.55,0.55,0.5}
+color_preparing = {0.6,0.85,0.6}
 color_reading = {1,1,1}
+
+nb_lines_before = 3
+nb_lines_after = 3
 
 path_default = ""
 
@@ -158,6 +162,9 @@ function get_ext_states()
   color_offline[2] = tonumber(reaper.GetExtState(extension,"color_offline2")) or color_offline[2]
   color_offline[3] = tonumber(reaper.GetExtState(extension,"color_offline3")) or color_offline[3]
   
+  nb_lines_before = tonumber(reaper.GetExtState(extension,"nb_lines_before")) or nb_lines_before
+  nb_lines_after = tonumber(reaper.GetExtState(extension,"nb_lines_after")) or nb_lines_after
+  
   msg_wins("init")
 end
 
@@ -196,7 +203,9 @@ function raz_extstate()
   reaper.DeleteExtState(extension,"color_offline1",true)
   reaper.DeleteExtState(extension,"color_offline2",true)
   reaper.DeleteExtState(extension,"color_offline3",true)
-  
+
+  reaper.DeleteExtState(extension,"nb_lines_before",true)
+  reaper.DeleteExtState(extension,"nb_lines_after",true)
  
   reaper.SetProjExtState(0,extension,"","")
 end
@@ -245,6 +254,9 @@ function quit()
     reaper.SetExtState(extension,"color_offline1",color_offline[1],true)
     reaper.SetExtState(extension,"color_offline2",color_offline[2],true)
     reaper.SetExtState(extension,"color_offline3",color_offline[3],true)
+    
+    reaper.SetExtState(extension,"nb_lines_before",nb_lines_before,true)
+    reaper.SetExtState(extension,"nb_lines_after",nb_lines_after,true)
   end
   
   msg_wins("quit")  
@@ -473,7 +485,9 @@ function menu_ctx()
   menu = menu .. "||Font color (reading)" 
   menu = menu .. "|Font color (preparing)" 
   menu = menu .. "|Font color (offline)" 
-  menu = menu .. test(is_running,"#","") .. "||Reset to default values, sizes and positions "
+  menu = menu .. "||Number of lines before (" .. nb_lines_before .. ")" 
+  menu = menu .. "|Number of lines after (" .. nb_lines_after .. ")" 
+  menu = menu .. "||" .. test(is_running,"#","") .. "Reset to default values, sizes and positions "
   
   msg(menu)
 
@@ -547,6 +561,24 @@ function menu_ctx()
     ask_color(color_offline)
     
   elseif choice == 12 then
+    retval, value = reaper.GetUserInputs("Number of lines before", 1, "number", tostring(nb_lines_before))
+    if(retval) then 
+      value = tonumber(value) or nb_lines_before
+      if(value < 0) then value = 0 end
+      if(value > 16) then value = 16 end
+      nb_lines_before = value
+    end  
+    
+  elseif choice == 13 then
+    retval, value = reaper.GetUserInputs("Number of lines after", 1, "number", tostring(nb_lines_after))
+    if(retval) then 
+      value = tonumber(value) or nb_lines_after
+      if(value < 0) then value = 0 end
+      if(value > 16) then value = 16 end
+      nb_lines_after = value
+    end  
+    
+  elseif choice == 14 then
     ask_reset = true
   end
 end
@@ -674,7 +706,7 @@ function main()
       gfx.y = gfx.y + win_font_height[win_idx]
     end 
      
-    for n_item = n_item_cur-3, n_item_cur+3 do
+    for n_item = n_item_cur-nb_lines_before, n_item_cur+nb_lines_after do
       if(n_item == n_item_cur and cursor <= end1) then
         gfx.set(color_reading[1],color_reading[2],color_reading[3])
       elseif(n_item == n_item_cur+1 and cursor > end1) then
@@ -732,4 +764,5 @@ end
 path_default = path_default .. "\\"
 
 main()
+
 
