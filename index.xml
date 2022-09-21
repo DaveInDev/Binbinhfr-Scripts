@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="7db53732d076b4bb5ca3fec039f9104694b983b4">
+<index version="1" name="BinbinHfr Scripts" commit="e319aab551bcfe4064816cc50c8e58c4549e7dbe">
   <category name="Item Editing">
-    <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
+    <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean selected items of useless sustain pedal CC64">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script clean useless MIDI CC 64 between 1 and 126 and keeps 0 and 127.\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script cleans selected items of useless sustain pedal CC64 (between 1 and 126)\sa180\par}
 }
 ]]></description>
         <link rel="website" href="https://forum.cockos.com/showthread.php?t=270885">Forum Thread https:</link>
@@ -38,7 +38,7 @@
     </reapack>
   </category>
   <category name="Various/Lyricator">
-    <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator">
+    <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator (display smoothly scrolling lyrics in a separate window)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -96,8 +96,8 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, import my repository into your Reapack : https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean useless sustain pedal CC (between 1 and 126)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_items_transpose : transpose any selected item by a number of semitones\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_items_transpose : transpose selected items by a number of semitones\sa180\par}
 }
 ]]></description>
   </metadata>
