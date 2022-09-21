@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="168e686d4b8e7e5e553bcc0649a31515c26cf6bd">
+<index version="1" name="BinbinHfr Scripts" commit="9853fb5e0c3d2a64ad9efee6c3ee2e0013114787">
   <category name="Item Editing">
     <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
       <metadata>
@@ -37,7 +37,7 @@
       </version>
     </reapack>
   </category>
-  <category name="Lyricator">
+  <category name="lyricator">
     <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -66,13 +66,13 @@
         <link rel="website" href="https://forum.cockos.com/showthread.php?t=270738">Forum Thread</link>
         <link rel="website">https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml</link>
       </metadata>
-      <version name="1.3" author="binbinhfr" time="2022-09-21T19:19:30Z">
+      <version name="1.3" author="binbinhfr" time="2022-09-21T19:21:51Z">
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 correct default opening path, docking problems
 + v1.2 pre color next line, 
        separate auto_resize options for playing and recording
 + v1.3 possibility to customize colors.]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/168e686d4b8e7e5e553bcc0649a31515c26cf6bd/Lyricator/bbh_lyricator.lua</source>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9853fb5e0c3d2a64ad9efee6c3ee2e0013114787/lyricator/bbh_lyricator.lua</source>
       </version>
     </reapack>
   </category>
