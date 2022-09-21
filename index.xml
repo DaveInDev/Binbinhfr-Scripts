@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="d81e91dff37a90f9512c9e8fefafe3c0da80a010">
+<index version="1" name="BinbinHfr Scripts" commit="927be8f1a802382b1e2a1b9e610f48045645efe7">
+  <category name="Item Editing">
+    <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script clean useless MIDI CC 64 between 1 and 126 and keeps 0 and 127.\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://forum.cockos.com/showthread.php?t=270885">Forum Thread https:</link>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-21T19:13:12Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/927be8f1a802382b1e2a1b9e610f48045645efe7/Item%20Editing/bbh_clean_sustain_cc.lua</source>
+      </version>
+    </reapack>
+  </category>
   <category name="Jsfx">
     <reapack name="MidiKeyboardSensitivity.jsfx" type="effect" desc="MIDI Keyboard Sensivity">
       <metadata>
@@ -18,7 +37,7 @@
       </version>
     </reapack>
   </category>
-  <category name="lyricator">
+  <category name="Various/Lyricator">
     <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -47,32 +66,13 @@
         <link rel="website" href="https://forum.cockos.com/showthread.php?t=270738">Forum Thread</link>
         <link rel="website">https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml</link>
       </metadata>
-      <version name="1.3" author="binbinhfr" time="2022-09-16T22:28:41Z">
+      <version name="1.3" author="binbinhfr" time="2022-09-21T19:13:12Z">
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 correct default opening path, docking problems
 + v1.2 pre color next line, 
        separate auto_resize options for playing and recording
 + v1.3 possibility to customize colors.]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d7c37f10f90841c581f9d379322fb49baba1c6d9/lyricator/bbh_lyricator.lua</source>
-      </version>
-    </reapack>
-  </category>
-  <category name="various">
-    <reapack name="bbh_clean_sustain_cc.lua" type="script" desc="Clean Sustain Pedal CC">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script clean useless MIDI CC 64 between 1 and 126 and keeps 0 and 127.\sa180\par}
-}
-]]></description>
-        <link rel="website" href="https://forum.cockos.com/showthread.php?t=270885">Forum Thread https:</link>
-        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
-      </metadata>
-      <version name="1.0" author="binbinhfr" time="2022-09-21T18:55:51Z">
-        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d81e91dff37a90f9512c9e8fefafe3c0da80a010/various/bbh_clean_sustain_cc.lua</source>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/927be8f1a802382b1e2a1b9e610f48045645efe7/Various/Lyricator/bbh_lyricator.lua</source>
       </version>
     </reapack>
   </category>
