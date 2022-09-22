@@ -125,13 +125,13 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 BinbinHfr Reaper's Scripts Repository\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, you need to have ReaPack installed first. Get it here for your platform/OS :\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, you need to have ReaPack installed first. Get it for your platform/OS here :\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Then, import my repository into your Reapack :\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Then, import my repository into your Reapack, copying this link :\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This link explains how to do it :\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This page explains how to do it :\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/user-guide#import-repositories\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Then search for "binbinhfr" in the package list, and install the scripts you need. They will appear in your action's list.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Then search for "binbinhfr" in the package list, and install the scripts you need. They will appear in your action's list in Reaper.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
