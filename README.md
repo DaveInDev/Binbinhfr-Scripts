@@ -18,7 +18,7 @@ They will appear in your action's list in Reaper.
 Scripts :
 - bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window
 - bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)
-- bbh_midi_items_transpose : transpose selected items by a number of semitones 
+- bbh_transpose_items : transpose selected items by a number of semitones 
 - bbh_trim_selected_items : trim selected items, deleting invisible parts (audio or midi)
 - bbh_zoomwheel : adaptative Horizontal Zoom with Mousewheel
 
