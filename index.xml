@@ -178,11 +178,11 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/user-guide#import-repositories\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Then search for "binbinhfr" in the package list, and install the scripts you need. They will appear in your action's list in Reaper.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Scripts :\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_transpose_items : transpose selected items by a number of semitones\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_trim_selected_items : trim selected items, deleting invisible parts (audio or midi)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_zoomwheel : adaptative Horizontal Zoom with Mousewheel\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyricator (import and display smoothly scrolling lyrics in a separate window)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Clean selected items of useless sustain pedal CC64\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Transpose selected midi or audio items by semitones\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Trim selected items (deleting any invisible part)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_keyboard_sensitivity : change the sensitivity of the MIDI input / keyboard touch\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_compressor : compress MIDI notes velocities, with an autogain feature\par}
