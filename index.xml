@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="b9f42778121f889ecdfb041bb9834999670053cd">
+<index version="1" name="BinbinHfr Scripts" commit="9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -26,7 +26,7 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script cleans selected items of useless sustain pedal CC64 (between 1 and 126)\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script cleans selected items of useless sustain pedal CC64 (between 1 and 126) and also redundant 0 or 127 values\sa180\par}
 }
 ]]></description>
         <link rel="website" href="https://forum.cockos.com/showthread.php?t=270885">Forum Thread https:</link>
@@ -35,6 +35,11 @@
       <version name="1.0" author="binbinhfr" time="2022-09-21T19:13:12Z">
         <changelog><![CDATA[+ v1.0 initial release]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/927be8f1a802382b1e2a1b9e610f48045645efe7/Item%20Editing/bbh_clean_sustain_cc.lua</source>
+      </version>
+      <version name="1.1" author="binbinhfr" time="2022-09-22T08:22:59Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 also remomves redundant 0 or 127 values]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3/Item%20Editing/bbh_clean_sustain_cc.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_midi_items_transpose.lua" type="script" desc="Midi items transpose">
@@ -51,6 +56,23 @@
       <version name="1.0" author="binbinhfr" time="2022-09-21T22:32:23Z">
         <changelog><![CDATA[+ v1.0 initial release]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/13995ff7f3e70eaca9335c73110e7607e35672f6/Item%20Editing/bbh_midi_items_transpose.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_trim_selected_items.lua" type="script" desc="Trim selected items (deleting any invisible part)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script trims selected items, deleting invisible parts\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Useful to clean unused audio parts, and reduced audio files sizes.\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-22T08:22:59Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3/Item%20Editing/bbh_trim_selected_items.lua</source>
       </version>
     </reapack>
   </category>
@@ -159,6 +181,7 @@
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_items_transpose : transpose selected items by a number of semitones\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_trim_selected_items : trim selected items, deleting invisible parts (audio or midi)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_zoomwheel : adaptative Horizontal Zoom with Mousewheel\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_keyboard_sensitivity : change the sensitivity of the MIDI input / keyboard touch\par}
