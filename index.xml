@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="4b22d8d3a36a29521decec578b608c9c5d805a86">
+<index version="1" name="BinbinHfr Scripts" commit="4405cdba890502852badaed3d40d2fab5bd72d9e">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -106,6 +106,36 @@
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/0e4abf15d1f7b40d05aa5aefcd8600b693a0a6bd/Jsfx/bbh_midi_keyboard_sensitivity.jsfx</source>
       </version>
     </reapack>
+    <reapack name="bbh_midi_transpose_project.jsfx" type="effect" desc="MIDI Transpose Project">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Transpose MIDI notes of a project by semitones. One instance of this plugin should be added to the master track. Then you have to add a "MIDI Transpose Track" plugin on every MIDI track you want to transpose. This solution makes it easy to transpose a whole MIDI project with one slider.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-22T21:49:16Z">
+        <changelog><![CDATA[v1.0 initial release]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4405cdba890502852badaed3d40d2fab5bd72d9e/Jsfx/bbh_midi_transpose_project.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_midi_transpose_track.jsfx" type="effect" desc="MIDI Transpose Track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Transpose MIDI notes of a track by semitones. The Track Transpose value only affects the current track, but can be combined with the Project Transpose value, shared by all instances of this plugin in the project, and defined in the "MIDI Transpose Project" plugin added to the master track.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-22T21:49:16Z">
+        <changelog><![CDATA[v1.0 initial release]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4405cdba890502852badaed3d40d2fab5bd72d9e/Jsfx/bbh_midi_transpose_track.jsfx</source>
+      </version>
+    </reapack>
     <reapack name="bbh_simple_smooth_gain.jsfx" type="effect" desc="Simple Smooth Gain">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -186,7 +216,8 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Keyboard Sensitivity (keyboard touch)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Velocity Compressor with AutoGain\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Simple Smooth Gain (smootly adds or removes gain to the audio signal)\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Simple Smooth Gain (smootly adds or removes gain to the audio signal)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Transpose Project/Track (global MIDI transpose of a project)\sa180\par}
 }
 ]]></description>
   </metadata>
