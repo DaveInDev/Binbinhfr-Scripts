@@ -13,21 +13,26 @@
 ----------------------------------------------------------------------------------------------------------
 
 local nb_items = reaper.CountSelectedMediaItems(0)
-if nb_items == 0 then return end
+
+if nb_items == 0 then
+  reaper.MB('No items selected.','Error',0)
+  return
+end
 
 local retval, transpose = reaper.GetUserInputs("Transpose", 1, "Transpose, semitones:", "0")
 if retval ~= true then return end
 
-reaper.Undo_BeginBlock()
+--reaper.Undo_BeginBlock()
 reaper.PreventUIRefresh(1)
 
 for i = 0, nb_items-1 do
-  local it =  reaper.GetSelectedMediaItem(0, i)
-  local takes = reaper.CountTakes(it)
+  local item =  reaper.GetSelectedMediaItem(0, i)
+  local takes = reaper.CountTakes(item)
   
   for t = 0, takes-1 do
-    local take = reaper.GetTake(it, t)
+    local take = reaper.GetTake(item, t)
     if not take then break end
+    
     if reaper.TakeIsMIDI(take) == true then
       local _, notes = reaper.MIDI_CountEvts(take)
       for n = 0, notes-1 do
@@ -41,10 +46,12 @@ for i = 0, nb_items-1 do
       reaper.SetMediaItemTakeInfo_Value(take, 'D_PITCH', t_pitch + transpose)
     end
   end
-  reaper.UpdateItemInProject(it)
+  reaper.UpdateItemInProject(item)
 end
 
+reaper.Undo_OnStateChange("Transpose selected midi items notes or audio items pitch")
+
 reaper.PreventUIRefresh(-1)
-reaper.Undo_EndBlock("transpose selected track audio items or midi items notes", -1)
+--reaper.Undo_EndBlock("Transpose selected midi items notes or audio items pitch", -1)
 
 
