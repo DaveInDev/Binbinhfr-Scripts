@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="13da2385877a2cdd7e8b8159826112e6a9d0630a">
+<index version="1" name="BinbinHfr Scripts" commit="b9f42778121f889ecdfb041bb9834999670053cd">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -84,19 +84,19 @@
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/0e4abf15d1f7b40d05aa5aefcd8600b693a0a6bd/Jsfx/bbh_midi_keyboard_sensitivity.jsfx</source>
       </version>
     </reapack>
-    <reapack name="bbh_simple_progressive_gain.jsfx" type="effect" desc="Simple Progressive Gain">
+    <reapack name="bbh_simple_smooth_gain.jsfx" type="effect" desc="Simple Smooth Gain">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 A simple plugin that adds or removes gain to the signal, but changing the resulting gain smoothly if the target value changes rapidly. The "smoothness" of the effect can be adjusted\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 A simple plugin that adds or removes gain to the audio signal, but changing the resulting gain smoothly if the target value changes rapidly. The "smoothness" of the effect can be adjusted\par}
 }
 ]]></description>
       </metadata>
-      <version name="1.0" author="binbinhfr" time="2022-09-22T07:08:49Z">
+      <version name="1.0" author="binbinhfr" time="2022-09-22T07:12:52Z">
         <changelog><![CDATA[v1.0 initial release]]></changelog>
-        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/13da2385877a2cdd7e8b8159826112e6a9d0630a/Jsfx/bbh_simple_progressive_gain.jsfx</source>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b9f42778121f889ecdfb041bb9834999670053cd/Jsfx/bbh_simple_smooth_gain.jsfx</source>
       </version>
     </reapack>
   </category>
@@ -155,11 +155,15 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 This page explains how to do it :\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/user-guide#import-repositories\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Then search for "binbinhfr" in the package list, and install the scripts you need. They will appear in your action's list in Reaper.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Available scripts :\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Scripts :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_lyricator : import and display smootly scrollable lyrics in a dedicated window\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_clean_sustain_cc : clean selected items of useless sustain pedal CC64 (between 1 and 126)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_items_transpose : transpose selected items by a number of semitones\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_zoomwheel : adaptative Horizontal Zoom with Mousewheel\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_keyboard_sensitivity : change the sensitivity of the MIDI input / keyboard touch\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_compressor : compress MIDI notes velocities, with an autogain feature\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_simple_smooth_gain : smootly adds or removes gain to the audio signal\sa180\par}
 }
 ]]></description>
   </metadata>
