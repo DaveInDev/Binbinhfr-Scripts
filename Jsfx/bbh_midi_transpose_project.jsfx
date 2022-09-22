@@ -1,0 +1,39 @@
+desc: MIDI Transpose Project
+// version: 1.0
+// author: binbinhfr
+// about:
+//   Transpose MIDI notes of a project by semitones.
+//   One instance of this plugin should be added to the master track.
+//   Then you have to add a "MIDI Transpose Track" plugin on every MIDI track you want to transpose.
+//   This solution makes it easy to transpose a whole MIDI project with one slider.
+// changelog:
+//   v1.0 initial release
+
+options:gmem=BbhMidiTransposeProjectAndTracks
+
+slider1:transpose_project=0<-48,48,1>Project transpose
+slider2:transpose_project_status=1<0,1,1{Off,On}>Enable/disable project transpose
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+  //store project transpose value in shared memory (shared between instances)
+  
+  (project_id == 0) ? (gmem[0] += 1; project_id = gmem[0];);
+  gmem[1] = project_id; // show active project id.
+  gmem[10+project_id] = transpose_project;
+  
+@slider
+  gmem[10+project_id] = transpose_project_status ? transpose_project : 0;
+
+@block
+  // should be called only when the project has focus...
+  gmem[1] = project_id; // show active project id.
+  
+@sample
+  spl0 = spl0;
+  spl1 = spl1;
+

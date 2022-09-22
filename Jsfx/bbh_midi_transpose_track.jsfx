@@ -1,0 +1,107 @@
+desc: MIDI Transpose Track
+// version: 1.0
+// author: binbinhfr
+// about:
+//   Transpose MIDI notes of a track by semitones.
+//   The Track Transpose value only affects the current track, but can be combined
+//   with the Project Transpose value, shared by all instances of this plugin in the project,
+//   and defined in the "MIDI Transpose Project" plugin added to the master track.
+// changelog:
+//   v1.0 initial release
+
+options:gmem=BbhMidiTransposeProjectAndTracks
+
+slider1:transpose_track=0<-48,48,1>Track transpose
+slider2:transpose_project_status=1<0,1,1{Off,On}>Use project transpose on current track
+slider3:transpose_project=0<-96,96,1>Project transpose (read-only)
+slider4:transpose_total=0<-96,96,1>Total transpose (read-only)
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+  //store project transpose value in shared memory (shared between instances)
+  
+  (id_project == 0) ? (id_project = gmem[1];);
+  (id_project != 0) ? (transpose_project = gmem[id_project];);
+  
+  // memorize which chnannel is used, to send notes off only to these channels
+  // (usefull in case of several tracks using the same poly-channel instrument...)
+  channels_used = 0;
+  n_chan = 0;
+  loop(16,
+    channels_used[n_chan] = 0;
+    n_chan += 1;
+  );
+
+  transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+  transpose_total_prev = transpose_total;
+
+  do_send_all_notes_off = 0;
+  count_loops = 0;
+  max_loops = srate/samplesblock/2;
+  
+  function send_all_notes_off() (
+    n_chan = 0;
+    offset = samplesblock-33;
+    
+    loop (16,
+      (channels_used[n_chan]) ? (
+        // message all notes off
+        midisend(offset, 0xB0+n_chan, 0x7B, 0x00 );
+        offset +=1;
+        // message sustain pedal off
+        midisend(offset, 0xB0+n_chan, 0x40, 0x00);
+      );
+      channels_used[n_chan] = 0;
+      offset +=1;
+      n_chan += 1;
+    );
+  );
+ 
+@slider
+  transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+  (transpose_total_prev != transpose_total) ? (do_send_all_notes_off = 1;);
+  transpose_total_prev = transpose_total;
+
+@block
+  count_loops += 1;
+  (count_loops > max_loops) ? (
+    count_loops = 0;
+    
+    id_project = gmem[1];
+    (id_project != 0) ? transpose_project = gmem[10+id_project];
+ 
+    transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+    (transpose_total_prev != transpose_total) ? (do_send_all_notes_off = 1;);
+    transpose_total_prev = transpose_total;
+  );
+  
+  while (
+    midirecv(msg_offs, msg1, msg2, msg3) ? (
+      n_chan = msg1 & 0x0F;
+      channels_used[n_chan] = 1;      
+      ((msg1 & 0xF0) == 0x90 || (msg1 & 0xF0) == 0x80) ? ( 
+        // note on/off messages
+        msg2 += transpose_total;
+        msg2 = (msg2 > 127) ? 127 : (msg2 < 0) ? 0 : msg2;
+        midisend(msg_offs, msg1, msg2, msg3);
+      ) : 
+      (
+        // pass thru non "note on" messages
+         midisend(msg_offs, msg1, msg2, msg3);
+      );
+    );
+  );
+  
+  (do_send_all_notes_off) ? (
+    send_all_notes_off();
+    do_send_all_notes_off = 0;
+  );
+  
+@sample
+  spl0 = spl0;
+  spl1 = spl1;
+
