@@ -1,6 +1,10 @@
-desc: Bbh MIDI Velocity Compressor with AutoGain
+desc: MIDI Velocity Compressor with AutoGain
 // version: 1.0
 // author: binbinhfr
+// about:
+//   Compress MIDI notes velocities, with an autogain feature that keeps the maximum velocity to 127.
+// changelog:
+//   v1.0 initial release
 
 slider1:64<0,127,1>Threshold
 slider2:1<0.1,10,0.1>Ratio

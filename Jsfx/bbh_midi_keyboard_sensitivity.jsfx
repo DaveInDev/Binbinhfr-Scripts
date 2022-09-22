@@ -1,8 +1,7 @@
-desc: Bbh MIDI Keyboard Sensivity
+desc: MIDI Keyboard Sensivity
 // version: 1.0
 // author: binbinhfr
 // about:
-//   # MIDI Keyboard Sensivity
 //   Change the sensitivity of the MIDI input, i.e. the relation between keyboard touch and velocity.
 //   Values : 0-4:light touch, 5: normal touch, 6-9:heavy touch, 10: constant touch
 // changelog:
