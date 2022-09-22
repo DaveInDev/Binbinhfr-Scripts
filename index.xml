@@ -184,9 +184,9 @@
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Trim selected items (deleting any invisible part)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_keyboard_sensitivity : change the sensitivity of the MIDI input / keyboard touch\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_midi_compressor : compress MIDI notes velocities, with an autogain feature\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bbh_simple_smooth_gain : smootly adds or removes gain to the audio signal\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Keyboard Sensitivity (keyboard touch)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Velocity Compressor with AutoGain\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Simple Smooth Gain (smootly adds or removes gain to the audio signal)\sa180\par}
 }
 ]]></description>
   </metadata>
