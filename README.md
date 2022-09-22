@@ -26,3 +26,4 @@ Effects :
 - MIDI Keyboard Sensitivity (keyboard touch)
 - MIDI Velocity Compressor with AutoGain
 - Simple Smooth Gain (smootly adds or removes gain to the audio signal)
+- MIDI Transpose Project/Track (global MIDI transpose of a project)
