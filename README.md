@@ -23,6 +23,6 @@ Scripts :
 - Adaptative Horizontal Zoom with Mousewheel
 
 Effects :
-- bbh_midi_keyboard_sensitivity : change the sensitivity of the MIDI input / keyboard touch
-- bbh_midi_compressor : compress MIDI notes velocities, with an autogain feature
-- bbh_simple_smooth_gain : smootly adds or removes gain to the audio signal
+- MIDI Keyboard Sensitivity (keyboard touch)
+- MIDI Velocity Compressor with AutoGain
+- Simple Smooth Gain (smootly adds or removes gain to the audio signal)
