@@ -21,6 +21,7 @@ Scripts :
 - Transpose selected midi or audio items by semitones
 - Trim selected items (deleting any invisible part)
 - Adaptative Horizontal Zoom with Mousewheel
+- Legato notes of selected items to avoid overlapping notes (but keeping chords) 
 
 Effects :
 - MIDI Keyboard Sensitivity (keyboard touch)
