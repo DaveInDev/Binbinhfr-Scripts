@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="4405cdba890502852badaed3d40d2fab5bd72d9e">
+<index version="1" name="BinbinHfr Scripts" commit="f11db67d6bab8a9a4021ae0a598b2b51835ec3c3">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -40,6 +40,23 @@
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 also remomves redundant 0 or 127 values]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3/Item%20Editing/bbh_clean_sustain_cc.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_legato_items.lua" type="script" desc="Legato notes of selected items to avoid overlapping notes (but keeping chords)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script adjusts notes lengths so that they do not overlap.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab It respects chords, i.e. notes that starts around the same time (within a time threshold)\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-09-24T14:41:21Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/2c17d8fb79da8d0e8cc6d415aa9b7814eb760074/Item%20Editing/bbh_legato_items.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_transpose_items.lua" type="script" desc="Transpose selected midi or audio items">
@@ -120,6 +137,11 @@
         <changelog><![CDATA[v1.0 initial release]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4405cdba890502852badaed3d40d2fab5bd72d9e/Jsfx/bbh_midi_transpose_project.jsfx</source>
       </version>
+      <version name="1.1" author="binbinhfr" time="2022-09-24T14:42:34Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 change scale]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/f11db67d6bab8a9a4021ae0a598b2b51835ec3c3/Jsfx/bbh_midi_transpose_project.jsfx</source>
+      </version>
     </reapack>
     <reapack name="bbh_midi_transpose_track.jsfx" type="effect" desc="MIDI Transpose Track">
       <metadata>
@@ -134,6 +156,11 @@
       <version name="1.0" author="binbinhfr" time="2022-09-22T21:49:16Z">
         <changelog><![CDATA[v1.0 initial release]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4405cdba890502852badaed3d40d2fab5bd72d9e/Jsfx/bbh_midi_transpose_track.jsfx</source>
+      </version>
+      <version name="1.1" author="binbinhfr" time="2022-09-24T14:42:34Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 change scale]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/f11db67d6bab8a9a4021ae0a598b2b51835ec3c3/Jsfx/bbh_midi_transpose_track.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_simple_smooth_gain.jsfx" type="effect" desc="Simple Smooth Gain">
@@ -212,7 +239,8 @@
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Clean selected items of useless sustain pedal CC64\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Transpose selected midi or audio items by semitones\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Trim selected items (deleting any invisible part)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Legato notes of selected items to avoid overlapping notes (but keeping chords)\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Keyboard Sensitivity (keyboard touch)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Velocity Compressor with AutoGain\par}
