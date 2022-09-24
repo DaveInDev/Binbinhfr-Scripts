@@ -1,5 +1,5 @@
 desc: MIDI Transpose Project
-// version: 1.0
+// version: 1.1
 // author: binbinhfr
 // about:
 //   Transpose MIDI notes of a project by semitones.
@@ -8,6 +8,7 @@ desc: MIDI Transpose Project
 //   This solution makes it easy to transpose a whole MIDI project with one slider.
 // changelog:
 //   v1.0 initial release
+//   v1.1 change scale
 
 options:gmem=BbhMidiTransposeProjectAndTracks
 

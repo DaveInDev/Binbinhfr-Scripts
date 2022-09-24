@@ -1,5 +1,5 @@
 desc: MIDI Transpose Track
-// version: 1.0
+// version: 1.1
 // author: binbinhfr
 // about:
 //   Transpose MIDI notes of a track by semitones.
@@ -8,13 +8,14 @@ desc: MIDI Transpose Track
 //   and defined in the "MIDI Transpose Project" plugin added to the master track.
 // changelog:
 //   v1.0 initial release
+//   v1.1 change scale
 
 options:gmem=BbhMidiTransposeProjectAndTracks
 
 slider1:transpose_track=0<-48,48,1>Track transpose
 slider2:transpose_project_status=1<0,1,1{Off,On}>Use project transpose on current track
-slider3:transpose_project=0<-96,96,1>Project transpose (read-only)
-slider4:transpose_total=0<-96,96,1>Total transpose (read-only)
+slider3:transpose_project=0<-48,48,1>Project transpose (read-only)
+slider4:transpose_total=0<-48,48,1>Total transpose (read-only)
 
 in_pin:left input
 in_pin:right input
