@@ -1,5 +1,5 @@
-desc: MIDI Transpose Track
-// version: 1.1
+wwdesc: MIDI Transpose Track
+// version: 1.2
 // author: binbinhfr
 // about:
 //   Transpose MIDI notes of a track by semitones.
@@ -9,6 +9,7 @@ desc: MIDI Transpose Track
 // changelog:
 //   v1.0 initial release
 //   v1.1 change scale
+//   v1.2 use ext_noinit to avoid project_id change at every play/stop
 
 options:gmem=BbhMidiTransposeProjectAndTracks
 
@@ -23,10 +24,11 @@ out_pin:left output
 out_pin:right output
 
 @init
+  ext_noinit = 1.0;
   //store project transpose value in shared memory (shared between instances)
   
-  (id_project == 0) ? (id_project = gmem[1];);
-  (id_project != 0) ? (transpose_project = gmem[id_project];);
+  (project_id == 0) ? (project_id = gmem[1];);
+  (project_id != 0) ? (transpose_project = gmem[project_id];);
   
   // memorize which chnannel is used, to send notes off only to these channels
   // (usefull in case of several tracks using the same poly-channel instrument...)
@@ -43,7 +45,7 @@ out_pin:right output
   do_send_all_notes_off = 0;
   count_loops = 0;
   max_loops = srate/samplesblock/2;
-  
+ 
   function send_all_notes_off() (
     n_chan = 0;
     offset = samplesblock-33;
@@ -68,12 +70,12 @@ out_pin:right output
   transpose_total_prev = transpose_total;
 
 @block
-  count_loops += 1;
-  (count_loops > max_loops) ? (
-    count_loops = 0;
+  count_loops -= 1;
+  (count_loops < 1) ? (
+    count_loops = max_loops;
     
-    id_project = gmem[1];
-    (id_project != 0) ? transpose_project = gmem[10+id_project];
+    project_id = gmem[1];
+    (project_id != 0) ? transpose_project = gmem[10+project_id];
  
     transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
     (transpose_total_prev != transpose_total) ? (do_send_all_notes_off = 1;);

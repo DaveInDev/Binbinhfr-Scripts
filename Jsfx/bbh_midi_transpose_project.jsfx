@@ -1,5 +1,5 @@
 desc: MIDI Transpose Project
-// version: 1.1
+// version: 1.2
 // author: binbinhfr
 // about:
 //   Transpose MIDI notes of a project by semitones.
@@ -9,6 +9,7 @@ desc: MIDI Transpose Project
 // changelog:
 //   v1.0 initial release
 //   v1.1 change scale
+//   v1.2 use ext_noinit to avoid project_id change at every play/stop
 
 options:gmem=BbhMidiTransposeProjectAndTracks
 
@@ -21,7 +22,12 @@ out_pin:left output
 out_pin:right output
 
 @init
+  ext_noinit = 1.0;
+
   //store project transpose value in shared memory (shared between instances)
+  // gmem[0] stores next usable project_id
+  // gmem[1] stores the id of the last playing project
+  // gmem[10+project_id] stores the global transpose to be shared with tracks of the same project
   
   (project_id == 0) ? (gmem[0] += 1; project_id = gmem[0];);
   gmem[1] = project_id; // show active project id.
