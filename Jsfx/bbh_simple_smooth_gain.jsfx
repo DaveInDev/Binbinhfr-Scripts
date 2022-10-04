@@ -1,5 +1,5 @@
-desc: Simple Smooth Gain
-// version: 1.0
+desc: Bbh Simple Smooth Gain
+// version: 1.1
 // author: binbinhfr
 // about:
 //   A simple plugin that adds or removes gain to the audio signal, 
@@ -7,10 +7,11 @@ desc: Simple Smooth Gain
 //   The "smoothness" of the effect can be adjusted
 // changelog:
 //   v1.0 initial release
+//   v1.1 new scale for smoothness
 
-slider1:gain_db=0<-32,24,0.01>gain target (dB)
-slider2:prog=10<0,100,0.1>smooth (0:immediate,1-100)
-slider3:0<-32,24,0.01>momentary gain (dB)
+slider1:gain_db=0<-32,24,0.01>target gain (dB)
+slider2:smoothness=100<0,500,1>smoothness (0:immediate,speed:1-500)
+slider3:0<-32,24,0.01>current gain (dB) (read-only)
 
 in_pin:left input
 in_pin:right input
@@ -25,13 +26,13 @@ gain_out=gain_db;
 @slider
 gain_next=10^(gain_db/20);
 time_per_block = samplesblock/srate;
-ratio=(prog == 0) ? 1 : time_per_block*10/prog;
+ratio=(smoothness == 0) ? 1 : time_per_block*100/smoothness;
 
 @block
 // progressive change
 gain_diff = gain_next - gain_cur;
 
-(abs(gain_diff) > 0.0001 & prog != 0) ?
+(smoothness != 0 & abs(gain_diff) > 0.0001) ?
 (
   gain_delta = gain_diff*ratio;
   gain_cur += gain_delta;

@@ -1,0 +1,26 @@
+desc: Bbh Simple Gain
+// version: 1.0
+// author: binbinhfr
+// about:
+//   A simple plugin that adds or removes gain to the audio signal.
+// changelog:
+//   v1.0 initial release
+
+slider1:gain_db=0<-32,24,0.01>gain (dB)
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+gain_cur=10^(gain_db/20);
+
+@slider
+gain_cur=10^(gain_db/20);
+
+@sample
+spl0 *= gain_cur;
+spl1 *= gain_cur;
+
+
