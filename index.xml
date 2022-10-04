@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="9a8c70f4f80617492feda86fcac022f4fac626c8">
+<index version="1" name="BinbinHfr Scripts" commit="7b911ad383d52836160adf6690a33e42d13c3061">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
