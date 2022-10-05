@@ -1,4 +1,4 @@
--- @description Transpose selected midi or audio items
+-- @description Transpose selected midi or audio items by semitones
 -- @author binbinhfr
 -- @version 1.0
 -- @links
@@ -19,7 +19,7 @@ if nb_items == 0 then
   return
 end
 
-local retval, transpose = reaper.GetUserInputs("Transpose", 1, "Transpose, semitones:", "0")
+local retval, transpose = reaper.GetUserInputs("Transpose items", 1, "Transpose value (semitones):", "0")
 if retval ~= true then return end
 
 --reaper.Undo_BeginBlock()
@@ -27,15 +27,15 @@ reaper.PreventUIRefresh(1)
 
 for i = 0, nb_items-1 do
   local item =  reaper.GetSelectedMediaItem(0, i)
-  local takes = reaper.CountTakes(item)
+  local nb_takes = reaper.CountTakes(item)
   
-  for t = 0, takes-1 do
+  for t = 0, nb_takes-1 do
     local take = reaper.GetTake(item, t)
     if not take then break end
     
     if reaper.TakeIsMIDI(take) == true then
-      local _, notes = reaper.MIDI_CountEvts(take)
-      for n = 0, notes-1 do
+      local _, nb_notes = reaper.MIDI_CountEvts(take)
+      for n = 0, nb_notes-1 do
         local retval, sel, muted, startppq, endppq, chan, pitch, vel = reaper.MIDI_GetNote(take, n)
         pitch = pitch + transpose
         if(pitch > 127) then pitch = 127 elseif( pitch <0) then pitch = 0 end

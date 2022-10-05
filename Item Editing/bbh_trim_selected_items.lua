@@ -8,7 +8,7 @@
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
---   + This script trims selected items, deleting invisible parts
+--   + This script trims selected items, deleting invisible parts (audio or midi)
 --   + Useful to clean unused audio parts, and reduced audio files sizes.
 
 -------------------------------------------------------------------------------------------------------------------  
