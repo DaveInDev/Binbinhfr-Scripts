@@ -11,7 +11,7 @@
 --   + This script scales notes velocities between min and max values (that can be outside the 0..127 range)
 --   + Can be used on selected items in the arrange view, or selected notes in the MIDI editor
 
-do_debug = true
+do_debug = false
 
 ----------------------------------------------------------------------------------------------------------
 if do_debug then
