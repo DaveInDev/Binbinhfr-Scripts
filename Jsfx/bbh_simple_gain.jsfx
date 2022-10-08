@@ -1,12 +1,15 @@
 // desc: Simple Gain
-// version: 1.0
+// version: 1.1
 // author: binbinhfr
 // about:
 //   A simple plugin that adds or removes gain to the audio signal.
 // changelog:
 //   v1.0 initial release
+//   v1.1 engaged switch
 
-slider1:gain_db=0<-32,24,0.01>gain (dB)
+slider1:engaged=1<0,1,1{off,on}>engaged (on/off)
+slider2:gain_db=0<-32,24,0.01>gain (dB)
+slider3:gain_out_db=0<-32,24,0.01>current gain (dB) (read-only)
 
 in_pin:left input
 in_pin:right input
@@ -14,10 +17,12 @@ out_pin:left output
 out_pin:right output
 
 @init
-gain_cur=10^(gain_db/20);
+gain_cur=engaged?(10^(gain_db/20)):1.0;
+gain_out_db=engaged ? gain_db : 0.0;
 
 @slider
-gain_cur=10^(gain_db/20);
+gain_cur=engaged?(10^(gain_db/20)):1.0;
+gain_out_db=engaged ? gain_db : 0.0;
 
 @sample
 spl0 *= gain_cur;

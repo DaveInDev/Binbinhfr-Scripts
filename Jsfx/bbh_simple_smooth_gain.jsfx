@@ -1,5 +1,5 @@
 // desc: Simple Smooth Gain
-// version: 1.1
+// version: 1.2
 // author: binbinhfr
 // about:
 //   A simple plugin that adds or removes gain to the audio signal, 
@@ -8,10 +8,12 @@
 // changelog:
 //   v1.0 initial release
 //   v1.1 new scale for smoothness
+//   v1.2 engaged switch
 
-slider1:gain_db=0<-32,24,0.01>target gain (dB)
-slider2:smoothness=100<0,500,1>smoothness (0:immediate,speed:1-500)
-slider3:0<-32,24,0.01>current gain (dB) (read-only)
+slider1:engaged=1<0,1,1{off,on}>engaged (on/off)
+slider2:gain_db=0<-32,24,0.01>target gain (dB)
+slider3:smoothness=100<0,500,1>smoothness (0:immediate,speed:1-500)
+slider4:gain_out_db=0<-32,24,0.01>current gain (dB) (read-only)
 
 in_pin:left input
 in_pin:right input
@@ -19,12 +21,12 @@ out_pin:left output
 out_pin:right output
 
 @init
-gain_next=10^(gain_db/20);
+gain_next=engaged ? (10^(gain_db/20)) : 1.0;
 gain_cur=gain_next;
-gain_out=gain_db;
+gain_out_db=engaged ? gain_db : 0.0;
 
 @slider
-gain_next=10^(gain_db/20);
+gain_next=engaged?(10^(gain_db/20)):1.0;
 time_per_block = samplesblock/srate;
 ratio=(smoothness == 0) ? 1 : time_per_block*100/smoothness;
 
@@ -43,11 +45,9 @@ gain_diff = gain_next - gain_cur;
 
 (gain_diff != 0) ? 
 (
-  gain_out = 20*(log(gain_cur)/log(10));
-  gain_out = 0.01*ceil(gain_out*100-0.5);
+  gain_out_db = 20*(log(gain_cur)/log(10));
+  gain_out_db = 0.01*ceil(gain_out_db*100-0.5);
 );
-
-slider3 = gain_out;
 
 @sample
 spl0 *= gain_cur;
