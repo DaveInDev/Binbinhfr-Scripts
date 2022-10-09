@@ -1,4 +1,4 @@
--- @description Scale notes velocities
+-- @description Scale notes velocities (selected items or notes)
 -- @author binbinhfr
 -- @version 1.0
 -- @links
@@ -77,9 +77,9 @@ if retval then
       msg("mid") 
       local take = reaper.MIDIEditor_GetTake(reaper.MIDIEditor_GetActive())
       scale_velocities_take(take,false)
-    end
-    
-    if focused == arrangeview then 
+      
+      reaper.Undo_OnStateChange("Scale selected notes velocities")
+    elseif focused == arrangeview then 
       msg("arr") 
       local nb_items = reaper.CountSelectedMediaItems(0)
       
@@ -92,10 +92,10 @@ if retval then
           scale_velocities_take(take,true)
         end
       end
+      
+      reaper.Undo_OnStateChange("Scale notes velocities inselected items")
     end
-    
-    reaper.Undo_OnStateChange("Scale notes velocities")
-        
+ 
     reaper.PreventUIRefresh(-1)
         
     reaper.UpdateArrange()
