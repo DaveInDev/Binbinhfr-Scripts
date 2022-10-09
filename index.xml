@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="e213f7e53415c1782a21b91a42b10c507222f855">
+<index version="1" name="BinbinHfr Scripts" commit="1559fa7bd1f634fe63154f7bb3d2941366cf5026">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -59,7 +59,26 @@
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/2c17d8fb79da8d0e8cc6d415aa9b7814eb760074/Item%20Editing/bbh_legato_items.lua</source>
       </version>
     </reapack>
-    <reapack name="bbh_scale_notes_velocities.lua" type="script" desc="Scale notes velocities">
+    <reapack name="bbh_legato_notes.lua" type="script" desc="Legato notes to avoid overlapping notes while keeping chords (selected items or notes)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script adjusts notes lengths so that they do not overlap.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab It respects chords, i.e. notes that starts around the same time (within a time threshold)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Can be used on selected items in the arrange view, or selected notes in the MIDI editor\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.1" author="binbinhfr" time="2022-10-09T20:14:13Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1559fa7bd1f634fe63154f7bb3d2941366cf5026/Item%20Editing/bbh_legato_notes.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_scale_notes_velocities.lua" type="script" desc="Scale notes velocities (selected items or notes)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -90,6 +109,24 @@
       <version name="1.0" author="binbinhfr" time="2022-09-22T10:32:35Z">
         <changelog><![CDATA[+ v1.0 initial release]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4650b0e54e5226a9258c4e3a6eb73dcbd1a0a936/Item%20Editing/bbh_transpose_items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_transpose_notes.lua" type="script" desc="Transpose selected midi notes by semitones (selected items or notes)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script transposes selected items by a number of semitones\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Can be used on selected items in the arrange view, or selected notes in the MIDI editor\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.1" author="binbinhfr" time="2022-10-09T20:14:13Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1559fa7bd1f634fe63154f7bb3d2941366cf5026/Item%20Editing/bbh_transpose_notes.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_trim_selected_items.lua" type="script" desc="Trim selected items (deleting any invisible part)">
