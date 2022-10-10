@@ -1,10 +1,11 @@
 -- @description Scale notes velocities (selected items or notes)
 -- @author binbinhfr
--- @version 1.0
+-- @version 1.1
 -- @links
 --   Repository: https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 -- @changelog
 --    + v1.0 initial release
+--    + v1.1 can be used on selected notes in midi editor
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about

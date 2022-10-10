@@ -17,7 +17,7 @@
 do_debug = false
 
 do_shorten = true
-do_extend = true
+do_extend = false
 
 threshold = 30
 
