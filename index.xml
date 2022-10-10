@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="2a798d18497ee4aed5cdda523538d6a1f9cfb032">
+<index version="1" name="BinbinHfr Scripts" commit="3d88eb4d0f04af1e11fc32aee7b94a192eee3bae">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -229,6 +229,13 @@ v1.1 change scale]]></changelog>
 v1.1 change scale
 v1.2 use ext_noinit to avoid project_id change at every play/stop]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/447471a3245739072819de49172cfbac6fc202ad/Jsfx/bbh_midi_transpose_project.jsfx</source>
+      </version>
+      <version name="1.3" author="binbinhfr" time="2022-10-10T22:45:29Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 change scale
+v1.2 use ext_noinit to avoid project_id change at every play/stop
+v1.3 add a project transpose octave slider]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/3d88eb4d0f04af1e11fc32aee7b94a192eee3bae/Jsfx/bbh_midi_transpose_project.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_midi_transpose_track.jsfx" type="effect" desc="MIDI Transpose Track">
