@@ -1,5 +1,5 @@
-// desc: MIDI Transpose Track
-// version: 1.2
+desc: MIDI Transpose Track
+// version: 1.3
 // author: binbinhfr
 // about:
 //   Transpose MIDI notes of a track by semitones.
@@ -10,27 +10,34 @@
 //   v1.0 initial release
 //   v1.1 change scale
 //   v1.2 use ext_noinit to avoid project_id change at every play/stop
+//   v1.3 add a track transpose octave slider
 
 options:gmem=BbhMidiTransposeProjectAndTracks
 
-slider1:transpose_track=0<-48,48,1>Track transpose
-slider2:transpose_project_status=1<0,1,1{Off,On}>Use project transpose on current track
-slider3:transpose_project=0<-48,48,1>Project transpose (read-only)
-slider4:transpose_total=0<-48,48,1>Total transpose (read-only)
+slider1:transpose_track=0<-48,48,1>Track transpose (semitones)
+slider2:transpose_track_octave=0<-10,10,1>Track transpose (octaves)
+slider3:transpose_project_status=1<0,1,1{Off,On}>Use project transpose on current track
+slider4:transpose_project=0<-48,48,1>Project transpose (read-only)
+slider5:transpose_total=0<-48,48,1>Total transpose (read-only)
 
 in_pin:left input
 in_pin:right input
 out_pin:left output
 out_pin:right output
 
+//-------------------------------------------------------------------------------------
 @init
   ext_noinit = 1.0;
-  //store project transpose value in shared memory (shared between instances)
   
+  version_cur = 1.3;
+  
+  strcat(#debug,"I");
+  
+  //store project transpose value in shared memory (shared between instances)
   (project_id == 0) ? (project_id = gmem[1];);
   (project_id != 0) ? (transpose_project = gmem[project_id];);
   
-  // memorize which chnannel is used, to send notes off only to these channels
+  // memorize which channel is used, to send notes off only to these channels
   // (usefull in case of several tracks using the same poly-channel instrument...)
   channels_used = 0;
   n_chan = 0;
@@ -39,12 +46,14 @@ out_pin:right output
     n_chan += 1;
   );
 
-  transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+  transpose_total = (transpose_project_status ? transpose_project : 0) 
+    + transpose_track + transpose_track_octave * 12;
   transpose_total_prev = transpose_total;
 
   do_send_all_notes_off = 0;
   count_loops = 0;
-  max_loops = srate/samplesblock/2;
+  // max_loops = srate/samplesblock/2; // samplesblock not always set in @init... 
+  max_loops = 80;
  
   function send_all_notes_off() (
     n_chan = 0;
@@ -63,21 +72,80 @@ out_pin:right output
       n_chan += 1;
     );
   );
- 
+  
+//-------------------------------------------------------------------------------------
+@serialize
+
+file_avail(0) > -1 ? 
+(
+  // Loading...
+  file_var(0, version);
+  version_last = version;
+  version < version_cur ? fix_version = 1;
+  version = version_cur;  
+  
+  strcat(#debug,"L");
+)
+:
+(
+  block_called ?
+  (
+    // Saving...
+    version == 0 ? fix_version = 1;
+    version = version_cur;
+    file_var(0, version);
+    
+    strcat(#debug,"S");
+  )
+  :
+  (
+    // Creating...
+    strcat(#debug,"C");
+  );
+);
+
+
+//-------------------------------------------------------------------------------------
 @slider
-  transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+  transpose_total = (transpose_project_status ? transpose_project : 0)
+    + transpose_track + transpose_track_octave * 12;
   (transpose_total_prev != transpose_total) ? (do_send_all_notes_off = 1;);
   transpose_total_prev = transpose_total;
 
+//-------------------------------------------------------------------------------------
 @block
+  ! block_called ?
+  (
+    block_called = 1;
+    strcat(#debug,"B");
+  );
+  
+  fix_version ?
+  (
+    fix_version = 0;
+    
+    version_last < 1.0 ?
+    (
+      transpose_total = transpose_project;
+      transpose_project = transpose_project_status;
+      transpose_project_status = transpose_track_octave;
+      transpose_track_octave = 0;
+    );
+    
+    strcat(#debug,"F");
+  );
+
   count_loops -= 1;
-  (count_loops < 1) ? (
+  (count_loops < 0) ? (
+    max_loops = srate/samplesblock/2; // samplesblock not always set in @init... 
     count_loops = max_loops;
     
     project_id = gmem[1];
+    slider63 = project_id;
     (project_id != 0) ? transpose_project = gmem[10+project_id];
  
-    transpose_total = (transpose_project_status ? transpose_project : 0) + transpose_track;
+    transpose_total = (transpose_project_status ? transpose_project : 0)
+       + transpose_track + transpose_track_octave * 12;
     (transpose_total_prev != transpose_total) ? (do_send_all_notes_off = 1;);
     transpose_total_prev = transpose_total;
   );
