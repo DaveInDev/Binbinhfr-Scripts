@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="945117a0d8b5a59ae2ca377b347df719d307b7d9">
+<index version="1" name="BinbinHfr Scripts" commit="2a798d18497ee4aed5cdda523538d6a1f9cfb032">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -42,23 +42,6 @@
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3/Item%20Editing/bbh_clean_sustain_cc.lua</source>
       </version>
     </reapack>
-    <reapack name="bbh_legato_items.lua" type="script" desc="Legato notes of selected items to avoid overlapping notes (but keeping chords)">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script adjusts notes lengths so that they do not overlap.\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab It respects chords, i.e. notes that starts around the same time (within a time threshold)\sa180\par}
-}
-]]></description>
-        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
-      </metadata>
-      <version name="1.0" author="binbinhfr" time="2022-09-24T14:41:21Z">
-        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/2c17d8fb79da8d0e8cc6d415aa9b7814eb760074/Item%20Editing/bbh_legato_items.lua</source>
-      </version>
-    </reapack>
     <reapack name="bbh_legato_notes.lua" type="script" desc="Legato notes to avoid overlapping notes while keeping chords (selected items or notes)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -78,6 +61,62 @@
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1559fa7bd1f634fe63154f7bb3d2941366cf5026/Item%20Editing/bbh_legato_notes.lua</source>
       </version>
     </reapack>
+    <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator (import and display smoothly scrolling lyrics in a separate window)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script displays smoothly scrolling lyrics in a separate window.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items in a dedicated lyrics track, named "Lyrics" (not case sensitive)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab If not existing, this track is automaticaly created.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab By default, the TEXT file browser points in the project directory.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab During import, lyrics can be added at the end of the existing lyrics as new items, or can replace the existing ones.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab After import, you can move and resize items to synchronize currently displayed lyrics with the underlying music.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab The currently displayed lyric lines depend on the position of the edit or play cursor on the timeline.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab By default, the size of the lyrics window becomes bigger when the project is playing, to easily read the lyrics from your recording position, far from the screen.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab On the contrary, when the project is stopped, the window size is reduced to allow easy editing of the tracks underneath.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can disable this behaviour with the "auto resize" options, if you want.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can also change the fonts sizes.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the colors of lines, depending on their status (reading, preparing, offline)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can choose how many lines you want to see before of after the current one.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the position and size of the window in both playing/stopped modes.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the default duration of a lyric item, and the default duration of the gap between lyric items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab All these choices/options are memorized for the next reaper session.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Note that the first track called "Lyrics" is taken into account, so you can have several tracks scalled "Lyrics"; just put the active one in the upper position.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab To avoid useless cpu work, note that, if you modify the lyric track during playback, the display is not updated. you have to stop and resume playback to refresh the lyrics.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Use the context menu (mouse right click).\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://forum.cockos.com/showthread.php?t=270738">Forum Thread</link>
+        <link rel="website">https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml</link>
+      </metadata>
+      <version name="1.4" author="binbinhfr" time="2022-10-10T22:35:30Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 correct default opening path, docking problems
++ v1.2 pre color next line, 
+       separate auto_resize options for playing and recording
++ v1.3 possibility to customize colors.
++ v1.4 option to choose number of visible lines before and after current one.]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d826380e0b300c2b4d481dba2489cd6a7179a0f7/Item%20Editing/bbh_lyricator.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script reloads the current project, without saving it (so take care...)\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-10-10T22:35:30Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d826380e0b300c2b4d481dba2489cd6a7179a0f7/Item%20Editing/bbh_reload_project.lua</source>
+      </version>
+    </reapack>
     <reapack name="bbh_scale_notes_velocities.lua" type="script" desc="Scale notes velocities (selected items or notes)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -94,21 +133,10 @@
         <changelog><![CDATA[+ v1.0 initial release]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/51a3650e522c20afe3026d6421f92c456f007e68/Item%20Editing/bbh_scale_notes_velocities.lua</source>
       </version>
-    </reapack>
-    <reapack name="bbh_transpose_items.lua" type="script" desc="Transpose selected midi or audio items by semitones">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script transposes selected items by a number of semitones\sa180\par}
-}
-]]></description>
-        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
-      </metadata>
-      <version name="1.0" author="binbinhfr" time="2022-09-22T10:32:35Z">
-        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
-        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4650b0e54e5226a9258c4e3a6eb73dcbd1a0a936/Item%20Editing/bbh_transpose_items.lua</source>
+      <version name="1.1" author="binbinhfr" time="2022-10-10T22:35:30Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d826380e0b300c2b4d481dba2489cd6a7179a0f7/Item%20Editing/bbh_scale_notes_velocities.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_transpose_notes.lua" type="script" desc="Transpose selected midi notes by semitones (selected items or notes)">
