@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="3d88eb4d0f04af1e11fc32aee7b94a192eee3bae">
+<index version="1" name="BinbinHfr Scripts" commit="9eca68497790ed398746b4e683fa2a9f0bd4cf70">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -269,6 +269,36 @@ v1.1 change scale
 v1.2 use ext_noinit to avoid project_id change at every play/stop
 v1.3 add a track transpose octave slider]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/945117a0d8b5a59ae2ca377b347df719d307b7d9/Jsfx/bbh_midi_transpose_track.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_MS_decoder_sideboost.jsfx" type="effect" desc="MS Decoder with boosted side">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Choose an ID common to a unique encoder/decoder chain, to share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="binbinhfr (adapted from an original idea of Dan Worrall)" time="2022-10-16T23:48:37Z">
+        <changelog><![CDATA[v1.0 initial release]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9eca68497790ed398746b4e683fa2a9f0bd4cf70/Jsfx/bbh_MS_decoder_sideboost.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_MS_encoder_sideboost.jsfx" type="effect" desc="MS Encoder with boosted side">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Choose an ID common to a unique encoder/decoder chain, to share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="binbinhfr (adapted from an original idea of Dan Worrall)" time="2022-10-16T23:48:37Z">
+        <changelog><![CDATA[v1.0 initial release]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9eca68497790ed398746b4e683fa2a9f0bd4cf70/Jsfx/bbh_MS_encoder_sideboost.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_simple_gain.jsfx" type="effect" desc="Simple Gain">
