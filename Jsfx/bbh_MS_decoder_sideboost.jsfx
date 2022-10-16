@@ -1,8 +1,8 @@
 desc:MS Decoder with boosted side
 //tags: utility mid-side processing
 //author: Binbinhfr (adapted from an original idea of Dan Worrall)
-//about: choose an ID common to a unique encoder/decoder chain, to share the boost value in realtime
-//       to use DW value (+6dB), choose 1.0 as a side boost
+//about: choose an ID common to a unique encoder/decoder chain, to share the side boost value in realtime.
+//       Default side boost value is +6dB (as advised by DW) 
 
 in_pin:mid input
 in_pin:side input
@@ -12,15 +12,15 @@ out_pin:right output
 options:gmem=BbhMSEncoderDecoder
 
 slider1:coder_id=1<1,99,1>Encoder/decoder ID
-slider2:boost=1.0<-9.0,9.0,0.01>Side signal boost (readonly)
+slider2:gain_db=6.0<-32,32,0.01>Side signal boost (dB) (readonly)
 
 @block
-boost = gmem[coder_id];
-ratio = (boost >= 0 ? (1+boost) : (1/(1-boost)));
+gain_db = gmem[coder_id];
+gain = 10^(gain_db/20);
 
 @sample
-left = spl0 + spl1 / ratio;
-right = spl0 - spl1 / ratio;
+left = spl0 + spl1 / gain;
+right = spl0 - spl1 / gain;
 
 spl0 = left;
 spl1 = right; 
