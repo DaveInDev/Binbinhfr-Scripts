@@ -12,7 +12,7 @@ out_pin:right output
 options:gmem=BbhMSEncoderDecoder
 
 slider1:coder_id=1<1,99,1>Encoder/decoder ID
-slider2:boost=0.0<-9.0,9.0,0.01>Side signal boost (readonly)
+slider2:boost=1.0<-9.0,9.0,0.01>Side signal boost (readonly)
 
 @block
 boost = gmem[coder_id];
