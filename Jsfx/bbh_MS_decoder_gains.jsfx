@@ -1,0 +1,61 @@
+desc:MS Decoder with separate decoding gains
+// version: 1.2
+// author: binbinhfr 
+// about: 
+//   Change the gain of the mid and side channel while MS encoding/decoding, 
+//   to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel  
+//   (use the choosen audio plugins in LR mode !).
+//   Adapted from an original idea by Dan Worall (all credits to him !)
+//   https://www.youtube.com/watch?v=dD6_Bajj2DI
+//   Choose an ID common to a unique encoder/decoder chain, to link both instances together and
+//   share the side boost value in realtime.
+//   Default values are 0dB to implement classical MS encoding.
+//   For the settings advised by DW, use +0dB on mid and +6dB on side.
+// changelog:
+//   v1.0 initial release
+//   v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.
+//   v1.2 integrate also a mid encoding gain 
+
+in_pin:mid input
+in_pin:side input
+out_pin:left output
+out_pin:right output
+
+options:gmem=BbhMSEncoderDecoderWithGains
+
+slider1:coder_id=1<1,99,1>Encoder/decoder ID
+slider2:encoder_present=0<0,1,1{no,yes}>Encoder present ?
+slider3:mid_gain_db=0.0<-32,32,0.01>Mid decoding gain (dB) (readonly)
+slider4:side_gain_db=0.0<-32,32,0.01>Side decoding  gain (dB) (readonly)
+
+//-----------------------------------------------------------------------------------
+@init
+check_count = 0;
+check_max = 10;
+
+//-----------------------------------------------------------------------------------
+@block
+mid_gain_db = -gmem[coder_id*5+1];
+mid_gain = 10^(mid_gain_db/20);
+side_gain_db = -gmem[coder_id*5+2];
+side_gain = 10^(side_gain_db/20);
+
+(check_count += 1) > check_max ? (
+  gmem[coder_id*5] == 2 ? encoder_present = 0;
+);
+gmem[coder_id*5] != 2 ? (
+  gmem[coder_id*5] = 2;
+  check_count = 0;
+  encoder_present  = 1;
+);
+
+status = gmem[coder_id*5];
+
+//-----------------------------------------------------------------------------------
+@sample
+encoder_present == 1 ? (
+  left = spl0 * mid_gain + spl1 * side_gain;
+  right = spl0 * mid_gain - spl1 * side_gain;
+  spl0 = left;
+  spl1 = right;
+);
