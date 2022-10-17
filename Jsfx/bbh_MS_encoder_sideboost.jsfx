@@ -1,16 +1,17 @@
 desc:MS Encoder with boosted side
-// version: 1.0
+// version: 1.1
 // author: binbinhfr 
 // about: 
 //   Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect 
-//   on the side channel of any MS compliant plugin applied to the signal.
+//   on the side channel of any plugin applied to the signal (use the plugin in LR mode !).
 //   Adapted from an original idea of Dan Worall (all credits to him !)
 //   https://www.youtube.com/watch?v=dD6_Bajj2DI
-//   Choose an ID common to a unique encoder/decoder chain, to link both ionstances together and
+//   Choose an ID common to a unique encoder/decoder chain, to link both instances together and
 //   share the side boost value in realtime.
 //   Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.
 // changelog:
 //   v1.0 initial release
+//   v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.
 
 in_pin:left input
 in_pin:right input
@@ -21,14 +22,38 @@ options:gmem=BbhMSEncoderDecoder
 
 slider1:coder_id=1<1,99,1>Encoder/decoder ID
 slider2:gain_db=6.0<-32,32,0.01>Side signal boost (dB)
+slider3:decoder_present=0<0,1,1{no,yes}>Decoder present ?
 
+//-----------------------------------------------------------------------------------
+@init
+check_count = 0;
+check_max = 10;
+
+//-----------------------------------------------------------------------------------
 @slider
-gmem[coder_id] = gain_db;
+gmem[coder_id*2] = gain_db;
 gain = 10^(gain_db/20);
 
-@sample
-mid = (spl0 + spl1) * 0.5;
-side = (spl0 - spl1) * 0.5 * gain;
+//-----------------------------------------------------------------------------------
+@block
+gain = 10^(gain_db/20);
 
-spl0 = mid;
-spl1 = side;
+(check_count += 1) > check_max ? (
+  gmem[coder_id*2+1] == 1 ? decoder_present = 0;
+);
+gmem[coder_id*2+1] != 1 ? (
+  gmem[coder_id*2+1] = 1;
+  check_count = 0;
+  decoder_present = 1;
+);
+
+status = gmem[coder_id*2+1];
+
+//-----------------------------------------------------------------------------------
+@sample
+decoder_present == 1 ? (
+  mid = (spl0 + spl1) * 0.5;
+  side = (spl0 - spl1) * 0.5 * gain;
+  spl0 = mid;
+  spl1 = side;
+);
