@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="b63a84ae9ec6344dd14c332e600ee8c597ed95cc">
+<index version="1" name="BinbinHfr Scripts" commit="dc4dbe1988a1b0a4bd744f5e93fffb8c1688bd6d">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -269,6 +269,40 @@ v1.1 change scale
 v1.2 use ext_noinit to avoid project_id change at every play/stop
 v1.3 add a track transpose octave slider]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/945117a0d8b5a59ae2ca377b347df719d307b7d9/Jsfx/bbh_midi_transpose_track.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_MS_decoder_gains.jsfx" type="effect" desc="MS Decoder with separate decoding gains">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.2" author="binbinhfr" time="2022-10-17T20:24:17Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.
+v1.2 integrate also a mid encoding gain ]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/dc4dbe1988a1b0a4bd744f5e93fffb8c1688bd6d/Jsfx/bbh_MS_decoder_gains.jsfx</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_MS_encoder_gains.jsfx" type="effect" desc="MS Encoder with separate encoding gains">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.2" author="binbinhfr" time="2022-10-17T20:24:17Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.
+v1.2 integrate also a mid encoding gain ]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/dc4dbe1988a1b0a4bd744f5e93fffb8c1688bd6d/Jsfx/bbh_MS_encoder_gains.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_simple_gain.jsfx" type="effect" desc="Simple Gain">
