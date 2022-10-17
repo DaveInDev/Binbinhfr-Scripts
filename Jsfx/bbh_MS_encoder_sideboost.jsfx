@@ -2,8 +2,8 @@ desc:MS Encoder with boosted side
 // version: 1.0
 // author: binbinhfr 
 // about: 
-//   Change the gain of the side channel when encoding/decoding, to emphasize/reequilibrate the effect of
-//   any MS compliant plugin applied to the signal.
+//   Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect 
+//   on the side channel of any MS compliant plugin applied to the signal.
 //   Adapted from an original idea of Dan Worall (all credits to him !)
 //   https://www.youtube.com/watch?v=dD6_Bajj2DI
 //   Choose an ID common to a unique encoder/decoder chain, to link both ionstances together and
