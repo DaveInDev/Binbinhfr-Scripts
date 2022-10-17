@@ -3,6 +3,7 @@ desc:MS Encoder with boosted side
 // author: binbinhfr 
 // about: 
 //   Adapted from an original idea of Dan Worall (all credits to him !)
+//   https://www.youtube.com/watch?v=dD6_Bajj2DI
 //   Choose an ID common to a unique encoder/decoder chain, to share the side boost value in realtime.
 //   Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.
 // changelog:
