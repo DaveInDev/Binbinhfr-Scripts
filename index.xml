@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="4004ea2660294022d474ac280c654c75e9f3128f">
+<index version="1" name="BinbinHfr Scripts" commit="52a685056081fdb52d801518e584b3597f6aeae4">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -277,7 +277,7 @@ v1.3 add a track transpose octave slider]]></changelog>
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
 }
 ]]></description>
       </metadata>
@@ -297,7 +297,7 @@ v1.1 disable encoding or decoding if a plugin with a corresponding ID is not fou
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
 }
 ]]></description>
       </metadata>
