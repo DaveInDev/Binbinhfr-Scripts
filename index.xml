@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="b1644771fe8285fd5b41b86f8a0b8999746d1366">
+<index version="1" name="BinbinHfr Scripts" commit="4004ea2660294022d474ac280c654c75e9f3128f">
   <category name="Arrange">
     <reapack name="bbh_zoomwheel.lua" type="script" desc="Adaptative Horizontal Zoom with Mousewheel">
       <metadata>
@@ -277,13 +277,18 @@ v1.3 add a track transpose octave slider]]></changelog>
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any MS compliant plugin applied to the signal. Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both ionstances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
 }
 ]]></description>
       </metadata>
       <version name="1.0" author="binbinhfr (adapted from an original idea of Dan Worrall)" time="2022-10-16T23:48:37Z">
         <changelog><![CDATA[v1.0 initial release]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9eca68497790ed398746b4e683fa2a9f0bd4cf70/Jsfx/bbh_MS_decoder_sideboost.jsfx</source>
+      </version>
+      <version name="1.1" author="binbinhfr" time="2022-10-17T16:17:49Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4004ea2660294022d474ac280c654c75e9f3128f/Jsfx/bbh_MS_decoder_sideboost.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_MS_encoder_sideboost.jsfx" type="effect" desc="MS Encoder with boosted side">
@@ -292,13 +297,18 @@ v1.3 add a track transpose octave slider]]></changelog>
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any MS compliant plugin applied to the signal. Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both ionstances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect on the side channel of any plugin applied to the signal (use the plugin in LR mode !). Adapted from an original idea of Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default side boost value is +6dB (as advised by DW). For classical MS encoding, use 0dB.\par}
 }
 ]]></description>
       </metadata>
       <version name="1.0" author="binbinhfr (adapted from an original idea of Dan Worrall)" time="2022-10-16T23:48:37Z">
         <changelog><![CDATA[v1.0 initial release]]></changelog>
         <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9eca68497790ed398746b4e683fa2a9f0bd4cf70/Jsfx/bbh_MS_encoder_sideboost.jsfx</source>
+      </version>
+      <version name="1.1" author="binbinhfr" time="2022-10-17T16:17:49Z">
+        <changelog><![CDATA[v1.0 initial release
+v1.1 disable encoding or decoding if a plugin with a corresponding ID is not found.]]></changelog>
+        <source>https://github.com/DaveInDev/Binbinhfr-Scripts/raw/4004ea2660294022d474ac280c654c75e9f3128f/Jsfx/bbh_MS_encoder_sideboost.jsfx</source>
       </version>
     </reapack>
     <reapack name="bbh_simple_gain.jsfx" type="effect" desc="Simple Gain">
