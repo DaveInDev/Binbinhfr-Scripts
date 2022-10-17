@@ -4,7 +4,7 @@
 // about: 
 //   Change the gain of the side channel while MS encoding/decoding, to emphasize/reequilibrate the effect 
 //   on the side channel of any plugin applied to the signal (use the plugin in LR mode !).
-//   Adapted from an original idea of Dan Worall (all credits to him !)
+//   Adapted from an original idea by Dan Worall (all credits to him !)
 //   https://www.youtube.com/watch?v=dD6_Bajj2DI
 //   Choose an ID common to a unique encoder/decoder chain, to link both instances together and
 //   share the side boost value in realtime.
