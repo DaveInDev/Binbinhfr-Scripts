@@ -7,8 +7,8 @@ desc:MS Decoder with separate decoding gains
 //   (use the choosen audio plugins in LR mode !).
 //   Adapted from an original idea by Dan Worall (all credits to him !)
 //   https://www.youtube.com/watch?v=dD6_Bajj2DI
-//   Choose an ID common to a unique encoder/decoder chain, to link both instances together and
-//   share the side boost value in realtime.
+//   Choose an ID common to a unique encoder/decoder pair, to link both instances together and
+//   share the gain values in realtime.
 //   Default values are 0dB to implement classical MS encoding.
 //   For the settings advised by DW, use +0dB on mid and +6dB on side.
 // changelog:
