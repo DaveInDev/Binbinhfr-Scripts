@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="055994cd0b52ace21fec6afdb65d5df4fcedb1ed">
+<index version="1" name="BinbinHfr Scripts" commit="d0add18bbef81bfa98d3a0613fe0a05e1b3326cc">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -155,6 +155,12 @@
 + v1.1 can be used on selected notes in midi editor]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d826380e0b300c2b4d481dba2489cd6a7179a0f7/Item%20Editing/bbh_scale_notes_velocities.lua</source>
       </version>
+      <version name="1.2" author="binbinhfr" time="2022-10-18T15:59:19Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor
++ v1.2 check JS_Reascript installation]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/103f81954c0dcc97c7bfc00ca03e2fac2de4488c/Item%20Editing/bbh_scale_notes_velocities.lua</source>
+      </version>
     </reapack>
     <reapack name="bbh_transpose_notes.lua" type="script" desc="Transpose selected midi notes by semitones (selected items or notes)">
       <metadata>
@@ -172,6 +178,12 @@
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 can be used on selected notes in midi editor]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1559fa7bd1f634fe63154f7bb3d2941366cf5026/Item%20Editing/bbh_transpose_notes.lua</source>
+      </version>
+      <version name="1.2" author="binbinhfr" time="2022-10-18T15:59:19Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor
++ v1.2 check JS_Reascript installation]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/103f81954c0dcc97c7bfc00ca03e2fac2de4488c/Item%20Editing/bbh_transpose_notes.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_trim_selected_items.lua" type="script" desc="Trim selected items (deleting any invisible part)">
@@ -408,6 +420,22 @@ v1.2 engaged switch]]></changelog>
 + v1.3 possibility to customize colors.
 + v1.4 option to choose number of visible lines before and after current one.]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/f4ccfb9918c426491ca6ad0bcfc5de6f85bc0047/Various/bbh_lyricator.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script reloads the current project, without saving it (so take care...)\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-10-18T16:00:44Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/d0add18bbef81bfa98d3a0613fe0a05e1b3326cc/Various/bbh_reload_project.lua</source>
       </version>
     </reapack>
   </category>
