@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="d0add18bbef81bfa98d3a0613fe0a05e1b3326cc">
+<index version="1" name="BinbinHfr Scripts" commit="ec1aabd4e49e322c4a66fdac9c49b69df68a72bb">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -306,7 +306,7 @@ v1.3 add a track transpose octave slider]]></changelog>
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder pair, to link both instances together and share the gain values in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
 }
 ]]></description>
       </metadata>
@@ -323,7 +323,7 @@ v1.2 integrate also a mid encoding gain ]]></changelog>
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder chain, to link both instances together and share the side boost value in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Change the gain of the mid and side channel while MS encoding/decoding, to emphasize or diminish the effect of any non-linear audio plugin on the mid or side channel\line (use the choosen audio plugins in LR mode !). Adapted from an original idea by Dan Worall (all credits to him !) https://www.youtube.com/watch?v=dD6_Bajj2DI Choose an ID common to a unique encoder/decoder pair, to link both instances together and share the gain values in realtime. Default values are 0dB to implement classical MS encoding. For the settings advised by DW, use +0dB on mid and +6dB on side.\par}
 }
 ]]></description>
       </metadata>
