@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="9d958fe485bf90efb47296109e6df6c13801811f">
+<index version="1" name="BinbinHfr Scripts" commit="055994cd0b52ace21fec6afdb65d5df4fcedb1ed">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -114,7 +114,10 @@
 
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script adjusts notes lengths so that they do not overlap.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab It respects chords, i.e. notes that starts around the same time (within a time threshold)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Can be used on selected items in the arrange view, or selected notes in the MIDI editor\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Can be used on selected items in the arrange view, or selected notes in the MIDI editor\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab If applied on items, the first pass will shorten the overlapping notes. If launched a second time\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab in a row on the same items, it will also extend notes lengthes.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You need to install js_ReaScriptAPI extension to use this script.\sa180\par}
 }
 ]]></description>
         <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
@@ -123,6 +126,12 @@
         <changelog><![CDATA[+ v1.0 initial release
 + v1.1 can be used on selected notes in midi editor]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1559fa7bd1f634fe63154f7bb3d2941366cf5026/Item%20Editing/bbh_legato_notes.lua</source>
+      </version>
+      <version name="1.2" author="binbinhfr" time="2022-10-18T15:54:58Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor
++ v1.2 if launched a second time on the same item, the notes are not only shortened but also extended]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/055994cd0b52ace21fec6afdb65d5df4fcedb1ed/Item%20Editing/bbh_legato_notes.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_scale_notes_velocities.lua" type="script" desc="Scale notes velocities (selected items or notes)">
