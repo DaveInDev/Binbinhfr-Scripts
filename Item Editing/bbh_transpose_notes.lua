@@ -1,11 +1,12 @@
 -- @description Transpose selected midi notes by semitones (selected items or notes)
 -- @author binbinhfr
--- @version 1.1
+-- @version 1.2
 -- @links
 --   Repository: https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 -- @changelog
 --    + v1.0 initial release
 --    + v1.1 can be used on selected notes in midi editor
+--    + v1.2 check JS_Reascript installation
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
@@ -62,6 +63,11 @@ end
 
 ----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
+
+if( reaper.JS_Window_FindChildByID == nil ) then
+  reaper.ShowMessageBox("Please install JS_Reascript (using Reapack).", "Error", 0)
+  return
+end
 
 -- test window before user input...
 arrangeview = reaper.JS_Window_FindChildByID( reaper.GetMainHwnd(), 1000)
