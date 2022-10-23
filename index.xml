@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="c7dbe6cbe128e3591fb89c5883ecc5ff9805312c">
+<index version="1" name="BinbinHfr Scripts" commit="9c2fd67fd62ea80552bc56d7d5d141939a7bede0">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -430,6 +430,17 @@ v1.2 engaged switch]]></changelog>
 + v1.4 option to choose number of visible lines before and after current one.
 + v1.5 dependancies checking at startup]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/c7dbe6cbe128e3591fb89c5883ecc5ff9805312c/Various/bbh_lyricator.lua</source>
+      </version>
+      <version name="1.6" author="binbinhfr" time="2022-10-23T15:29:21Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 correct default opening path, docking problems
++ v1.2 pre color next line, 
+       separate auto_resize options for playing and recording
++ v1.3 possibility to customize colors.
++ v1.4 option to choose number of visible lines before and after current one.
++ v1.5 dependancies checking at startup, + variable length defer loop
++ v1.6 directory separator by OS]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9c2fd67fd62ea80552bc56d7d5d141939a7bede0/Various/bbh_lyricator.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
