@@ -17,6 +17,11 @@
 --    + v1.8 various code cleaning
 -- @license GPL v3
 -- @reaper 6.6x
+-- ignore bbh_lyricator_sample.rpp
+-- ignore bbh_lyricator_sample.txt
+-- @provides
+--   [projecttpl] bbh_lyricator_sample.rpp
+--   [projecttpl] bbh_lyricator_sample.txt
 -- @about
 --   + This script displays smoothly scrolling lyrics in a separate window.
 --   + Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items 
