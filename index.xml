@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="ec1aabd4e49e322c4a66fdac9c49b69df68a72bb">
+<index version="1" name="BinbinHfr Scripts" commit="c7dbe6cbe128e3591fb89c5883ecc5ff9805312c">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -382,7 +382,7 @@ v1.2 engaged switch]]></changelog>
     </reapack>
   </category>
   <category name="Various">
-    <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator (import and display smoothly scrolling lyrics in a separate window)">
+    <reapack name="bbh_lyricator.lua" type="script" desc="Lyricator (display smoothly scrolling lyrics in a separate window)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
@@ -421,6 +421,16 @@ v1.2 engaged switch]]></changelog>
 + v1.4 option to choose number of visible lines before and after current one.]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/f4ccfb9918c426491ca6ad0bcfc5de6f85bc0047/Various/bbh_lyricator.lua</source>
       </version>
+      <version name="1.5" author="binbinhfr" time="2022-10-23T14:47:41Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 correct default opening path, docking problems
++ v1.2 pre color next line, 
+       separate auto_resize options for playing and recording
++ v1.3 possibility to customize colors.
++ v1.4 option to choose number of visible lines before and after current one.
++ v1.5 dependancies checking at startup]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/c7dbe6cbe128e3591fb89c5883ecc5ff9805312c/Various/bbh_lyricator.lua</source>
+      </version>
     </reapack>
     <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
       <metadata>
@@ -447,23 +457,19 @@ v1.2 engaged switch]]></changelog>
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 BinbinHfr Reaper's Scripts Repository\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 To install these scripts, you need to have ReaPack installed first. Get it for your platform/OS here :\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Then, import my repository into your Reapack, copying this link :\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 This page explains how to do it :\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 https://reapack.com/user-guide#import-repositories\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Then search for "binbinhfr" in the package list, and install the scripts you need. They will appear in your action's list in Reaper.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Scripts :\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyricator (import and display smoothly scrolling lyrics in a separate window)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Clean selected items of useless sustain pedal CC64\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Legato notes of selected items to avoid overlapping notes (but keeping chords)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Transpose selected midi or audio items by semitones\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Clean selected items of useless sustain pedal CC64\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Trim selected items (deleting any invisible part)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Legato notes of selected items to avoid overlapping notes (but keeping chords)\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Adaptative Horizontal Zoom with Mousewheel\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Effects :\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Transpose Project/Track (global MIDI transpose of a project)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Keyboard Sensitivity (keyboard touch)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Velocity Compressor with AutoGain\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Simple Smooth Gain (smootly adds or removes gain to the audio signal)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab MIDI Transpose Project/Track (global MIDI transpose of a project)\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Simple Smooth Gain (smootly adds or removes gain to the audio signal)\sa180\par}
 }
 ]]></description>
   </metadata>
