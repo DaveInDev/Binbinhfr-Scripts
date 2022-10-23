@@ -1,6 +1,6 @@
 -- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.5
+-- @version 1.6
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -11,7 +11,8 @@
 --           separate auto_resize options for playing and recording
 --    + v1.3 possibility to customize colors.
 --    + v1.4 option to choose number of visible lines before and after current one.
---    + v1.5 dependancies checking at startup
+--    + v1.5 dependancies checking at startup, + variable length defer loop
+--    + v1.6 directory separator by OS
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
@@ -103,6 +104,7 @@ nb_lines_after = 3
 path_default = ""
 
 count_loops = 0
+count_max = 15
 playstate = -1
 last_playstate = -1
 is_running = false
@@ -396,7 +398,6 @@ function import_lyrics(do_add)
   else
     retval, filename = reaper.GetUserFileNameForRead(path, "Open a lyrics text file (replace lyrics)", "*.txt" )
   end
-  --retval, filename = true, "E:\\Reaper\\Test07lyrics\\lyrics.txt"
   
   if(retval) then
     reaper.Undo_BeginBlock()
@@ -626,8 +627,10 @@ function main()
   local last_win_dock = win_dock
   local x,y,w,h
 
+  count_max = count_max + 0.051
+  if count_max > 17 then count_max = count_max - 4 end
   count_loops = count_loops + 1
-  if(count_loops == 15) then count_loops = 0 end
+  if(count_loops >= count_max) then count_loops = 0 end
   
   playstate = reaper.GetPlayState()
   is_running = (playstate & 1 ~= 0)
@@ -706,7 +709,7 @@ function main()
       gfx.printf("S")
     end
     
-    gfx.printf("%d", count_loops)
+    gfx.printf("%d/%.2f", count_loops, count_max)
   end
   
   if( nb_lyrics > 0 ) then
@@ -796,7 +799,8 @@ if(path_default == "" ) then
   path_default = reaper.GetProjectPath()
 end
       
-path_default = path_default .. "\\"
+path_default = path_default .. dir_separator
+msg("path_default=" .. path_default)
 
 main()
 
