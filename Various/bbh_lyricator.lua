@@ -1,6 +1,6 @@
--- @description Lyricator (import and display smoothly scrolling lyrics in a separate window)
+-- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.4
+-- @version 1.5
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -11,8 +11,13 @@
 --           separate auto_resize options for playing and recording
 --    + v1.3 possibility to customize colors.
 --    + v1.4 option to choose number of visible lines before and after current one.
+--    + v1.5 dependancies checking at startup
 -- @license GPL v3
 -- @reaper 6.6x
+-- @provides
+--   bbh_reagig_app.lua
+--   [projecttpl] bbh_lyricator_sample.rpp
+--   [projecttpl] bbh_lyricator_sample.txt
 -- @about
 --   + This script displays smoothly scrolling lyrics in a separate window.
 --   + Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items 
@@ -38,9 +43,41 @@
 --     you have to stop and resume playback to refresh the lyrics.
 --   + Use the context menu (mouse right click).
 
-----------------------------------------------------------------------------------------------------------
 do_debug = false
 
+----------------------------------------------------------------------------------------------------------
+local reaper_version = reaper.GetAppVersion()
+reaper_version = tonumber(reaper_version:match("(%d%.%d*)"))
+
+if reaper_version < 6.20 then 
+  reaper.MB("Please install Reaper 6.20 or higher\n" ..
+    "https://www.reaper.fm/download.php",
+    "Installation",0) 
+  return 
+end
+
+if( reaper.CF_GetSWSVersion == nil or tonumber(reaper.CF_GetSWSVersion():match("(%d%.%d*)")) < 2.0) then
+  reaper.ShowMessageBox("Please install SWS 2.12 or higher (using ReaPack ?).\n" ..
+    "https://www.sws-extension.org/\n", 
+    "Installation", 0)
+  return
+end
+
+if reaper.JS_ReaScriptAPI_Version == nil or reaper.JS_ReaScriptAPI_Version() < 1.3 then 
+  reaper.MB("Please install JS-extension-plugin 1.3 or higher.\n" ..
+    "https://forum.cockos.com/showthread.php?t=212174\n" ..
+    "https://github.com/juliansader/ReaExtensions/tree/master/js_ReaScriptAPI/\n",
+    "Installation",0) 
+  return 
+end
+
+if reaper.GetOS() == "Win32" or reaper.GetOS() == "Win64" then
+  dir_separator = "\\"
+else
+  dir_separator = "/"
+end
+
+----------------------------------------------------------------------------------------------------------
 extension = "bbh_lyricator"
 win_title = {"Lyricator (stopped)", "Lyricator (playing)"}
 
