@@ -307,7 +307,7 @@ end
 
 -----------------------------------------------------------------------------------------
 function find_lyrics_track()
-  local track_idx, track, retval, track_name
+  local track, retval, track_name
   
   for track_idx = 0, reaper.CountTracks(0) - 1 do
     track = reaper.GetTrack(0, track_idx)
@@ -322,7 +322,7 @@ end
 
 -----------------------------------------------------------------------------------------
 function select_lyrics_track()
-  local track_idx, track, retval, track_name
+  local track, retval, track_name
   
   for track_idx = 0, reaper.CountTracks(0) - 1 do
     track = reaper.GetTrack(0, track_idx)
@@ -333,7 +333,7 @@ end
 
 -----------------------------------------------------------------------------------------
 function read_lyrics_from_items()
-  local n_item, item, retval
+  local item, retval
 
   track_lyrics = find_lyrics_track()
   
@@ -423,7 +423,6 @@ function import_lyrics(do_add)
       local t = 0
       local p, d
       local lyrics_file = {}
-      local i, l
   
       for l in io.lines() do
         if(l ~= "") then
@@ -718,7 +717,7 @@ function main()
   end
   
   if( nb_lyrics > 0 ) then
-    local n_item, n_item_cur, start1, start2, end1 
+    local n_item_cur, start1, start2, end1 
  
     gfx.x = 10
     gfx.y = -win_font_height[win_idx]
