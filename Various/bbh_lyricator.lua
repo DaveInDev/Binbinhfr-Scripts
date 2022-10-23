@@ -1,6 +1,6 @@
 -- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.6
+-- @version 1.7
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -11,8 +11,9 @@
 --           separate auto_resize options for playing and recording
 --    + v1.3 possibility to customize colors.
 --    + v1.4 option to choose number of visible lines before and after current one.
---    + v1.5 dependancies checking at startup, + variable length defer loop
+--    + v1.5 dependancies checking at startup, 
 --    + v1.6 directory separator by OS
+--    + v1.7 variable length defer loop
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
@@ -103,8 +104,11 @@ nb_lines_after = 3
 
 path_default = ""
 
-count_loops = 0
-count_max = 15
+count_defer = 0.0
+count_defer_max = 15.0
+count_defer_max1 = count_defer_max-2.0
+count_defer_max2 = count_defer_max+2.0
+
 playstate = -1
 last_playstate = -1
 is_running = false
@@ -627,10 +631,11 @@ function main()
   local last_win_dock = win_dock
   local x,y,w,h
 
-  count_max = count_max + 0.051
-  if count_max > 17 then count_max = count_max - 4 end
-  count_loops = count_loops + 1
-  if(count_loops >= count_max) then count_loops = 0 end
+  count_defer_max = count_defer_max + 0.0329
+  if count_defer_max > count_defer_max2 then count_defer_max = count_defer_max1 end
+  
+  count_defer = count_defer + 1
+  if(count_defer >= count_defer_max) then count_defer = 0 end
   
   playstate = reaper.GetPlayState()
   is_running = (playstate & 1 ~= 0)
@@ -652,7 +657,7 @@ function main()
   else
     -- song stopped 
     cursor = reaper.GetCursorPosition()
-    if(count_loops == 0 or nb_lyrics <= 0) then
+    if(count_defer == 0 or nb_lyrics <= 0) then
       read_lyrics_from_items()
     end
     win_idx = 1
@@ -709,7 +714,7 @@ function main()
       gfx.printf("S")
     end
     
-    gfx.printf("%d/%.2f", count_loops, count_max)
+    gfx.printf("%d/%.2f", count_defer, count_defer_max)
   end
   
   if( nb_lyrics > 0 ) then
