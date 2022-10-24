@@ -1,4 +1,44 @@
-<REAPER_PROJECT 0.1 "6.68/win64" 1666534572
+<REAPER_PROJECT 0.1 "6.68/win64" 1666585037
+  TITLE "Lyricator sample"
+  AUTHOR binbinhfr
+  <NOTES 1 1
+    |- In the actions list, run Lyricator: it opens the Lyricator window.
+    |- In the Reaper project, Lyricator uses the special dedicated "Lyrics" track and 
+    |  the empty items in it, to display lyrics along with the music of the other tracks.
+    |- Check Lyricator context menu (mouse right click).
+    |- Lyrics are imported from a TXT file (one sentence per line, empty lines are 
+    |  excluded) ; check the bbh_lyricator_sample.txt file provided in the 
+    |  templates directory:  it contains lyrics that were importing to create the 
+    |  sample project.
+    |- If not existing, the Lyrics track is automaticaly created.
+    |- By default, the TXT file browser points in the project directory.
+    |- During import, lyrics can be added at the end of the existing lyrics as new items, 
+    |  or can replace the existing ones.
+    |- After import, you can move and resize items to synchronize currently displayed 
+    |  lyrics with the underlying music.
+    |- The currently displayed lyric lines depend on the position of the edit or play 
+    |  cursor on the timeline.
+    |- By default, the size of the lyrics window becomes bigger when the project 
+    |  is playing, to easily read the lyrics from your recording position, far from 
+    |  the screen.
+    |- On the contrary, when the project is stopped, the window size is reduced 
+    |  to allow easy editing of the tracks underneath.
+    |- You can disable this behaviour with the "auto resize" options, if you want.
+    |- You can also change the fonts sizes.
+    |- You can change the colors of lines, depending on their status (reading, 
+    |  preparing, offline)
+    |- You can choose how many lines you want to see before of after the current one.
+    |- You can change the position and size of the window in both playing/stopped modes. 
+    |- You can change the default duration of a lyric item, and the default duration 
+    |  of the gap between lyric items.
+    |- All these choices/options are memorized for the next reaper session.
+    |- Note that the first track called "Lyrics" is taken into account, so you can have 
+    |  several tracks scalled "Lyrics";  just put the active one in the upper position.
+    |- To avoid useless cpu work, note that, if you modify the lyric track during playback, 
+    |  the display is not updated. You have to stop and resume playback to refresh 
+    |  the lyrics.
+    |- Use the context menu (mouse right click).
+  >
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 200
@@ -14,7 +54,7 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 5
-  CURSOR 8.69565217391304
+  CURSOR 2.60869565217391
   ZOOM 11.44698627624748 0 0
   VZOOMEX 16 0
   USE_REC_CFG 0
@@ -77,15 +117,6 @@
     SHOW 0
     LASTSEL 0
     DOCKED 0
-    BYPASS 0 0 0
-    <VST "VST: ReaLimit (Cockos)" realimit.dll 0 "" 1919708532<565354726C6D747265616C696D697400> ""
-      dG1scu5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAMAAAAAEAAAAAABAA
-      AwAAAEAAAACgmZmZmZkVwADNzMzMzNy/AgAAAAAAAAAAAAAAAAAAAD+fduMQw8Y/
-      AFByb2dyYW0gMQAQAAAA
-    >
-    FLOATPOS 0 0 0 0
-    FXID {784445A6-1901-4F90-B6FA-586EFCB8C59A}
-    WAK 0 0
   >
   <MASTERPLAYSPEEDENV
     EGUID {A2F0D46C-965A-417A-B4CE-F11D494F440E}
@@ -106,7 +137,7 @@
   <PROJBAY
   >
   <TRACK {792423C0-7251-4627-8F54-2205C049DC8D}
-    NAME "Piano ?"
+    NAME "Cheesy Piano"
     PEAKCOL 33521664
     BEAT -1
     AUTOMODE 0
@@ -139,18 +170,27 @@
       BYPASS 0 0 0
       <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321<5653547265737972656173796E746800> ""
         eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAABEAAAAAAAAAAAAEAA=
-        776t3g3wrd4nUrw7AP+UPdv5/j7dJMY+0SI7P14x5T4I/QE8AAAAAAAAAD+01Ms+exROPwAAAD8AAAAAAAAAAAAAAAA=
+        776t3g3wrd5vEgM8zczMPQAAAD8AAAA/AABAPxqqtT4I/QE8zczMPQAAAD8aqrU+AAAAP4mIAD8AAAAAAAAAAAAAAAA=
         AAAQAAAA
       >
-      FLOATPOS 24 52 345 461
+      FLOATPOS 997 314 345 461
       FXID {F1E1D333-2237-4600-8C80-5EDEE6B4A02A}
+      WAK 0 0
+      BYPASS 0 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321<5653547265737972656173796E746800> ""
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAABEAAAAAAAAAAAAEAA=
+        776t3g3wrd5vEoM7CtejPQAAAD8AAAA/mpkZPxqqtT4zwiI8zczMPQAAAD+b6KE+AABAP+/u/j4AAAAAAAAAAAAAAAA=
+        AAAQAAAA
+      >
+      FLOATPOS 1463 330 345 461
+      FXID {A15940F0-4096-4945-9839-BF404CAF0B06}
       WAK 0 0
       BYPASS 0 0 0
       <VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729<56535472656571726561657100000000> ""
         cWVlcu5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAiwAAAAEAAAAAABAA
         IQAAAAMAAAAIAAAAAQAAAMMzkn8rYFxAs333rdZY9T8BAAAAAADwPwEIAAAAAQAAABj0BixX6XNABh5TLxf64T82MzMzMzPjPwEIAAAAAQAAAEc0JSUJFqRA+RZvsAsl
         +z+amZmZmZn5PwEBAAAAAQAAAAAAAAAAAPA/AAAAAP0BAABcAQAAAgAAAA==
-        AAAQAAAA
+        AFByb2dyYW0gMQAQAAAA
       >
       FLOATPOS 0 0 0 0
       FXID {DC5CA820-2848-4609-B1DE-E00472DC168E}
@@ -159,7 +199,7 @@
       <VST "VST: ReaVerbate (Cockos)" reaverbate.dll 0 "" 1920361016<56535472766238726561766572626174> ""
         OGJ2cu9e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAKAAAAAAAAAAAABAA
         776t3g3wrd5fawA/AACAP6AWEz88aJY+AACAP2HB/TslUhM/7C8LPA==
-        AAAQAAAA
+        AFByb2dyYW0gMQAQAAAA
       >
       FLOATPOS 24 52 432 298
       FXID {89700A72-1A96-43A5-96F9-42522811B1CA}

@@ -19,10 +19,11 @@
 -- @license GPL v3
 -- @reaper 6.6x
 -- @provides
---   [projecttpl] Lyricator Sample.rpp
---   [projecttpl] Lyricator Sample.txt
+--   [projecttpl] bbh_lyricator_sample.rpp
+--   [projecttpl] bbh_lyricator_sample.txt
 -- @about
 --   + This script displays smoothly scrolling lyrics in a separate window.
+--   + Reapack installs bbh_lyricator_sample.rpp as a template and bbh_lyricator_sample.txt : try them.
 --   + Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items 
 --     in a dedicated lyrics track, named "Lyrics" (not case sensitive)
 --   + If not existing, this track is automaticaly created.
