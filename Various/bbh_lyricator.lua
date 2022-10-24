@@ -1,6 +1,6 @@
 -- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.8
+-- @version 1.9
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -15,10 +15,9 @@
 --    + v1.6 directory separator by OS
 --    + v1.7 variable length defer loop
 --    + v1.8 various code cleaning
+--    + v1.9 provides 2 sample files
 -- @license GPL v3
 -- @reaper 6.6x
--- ignore bbh_lyricator_sample.rpp
--- ignore bbh_lyricator_sample.txt
 -- @provides
 --   [projecttpl] bbh_lyricator_sample.rpp
 --   [projecttpl] bbh_lyricator_sample.txt
