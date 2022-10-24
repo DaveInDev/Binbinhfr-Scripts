@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="7ee11366a54e0bad0333cd38b6a0dfea3d2c05c9">
+<index version="1" name="BinbinHfr Scripts" commit="da0c0c5f1e560b1f6eac9b5b0fe274a11e8b0ff0">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -389,6 +389,7 @@ v1.2 engaged switch]]></changelog>
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script displays smoothly scrolling lyrics in a separate window.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Reapack installs bbh_lyricator_sample.rpp as a template and bbh_lyricator_sample.txt : try them.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items in a dedicated lyrics track, named "Lyrics" (not case sensitive)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab If not existing, this track is automaticaly created.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab By default, the TEXT file browser points in the project directory.\par}
