@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="da0c0c5f1e560b1f6eac9b5b0fe274a11e8b0ff0">
+<index version="1" name="BinbinHfr Scripts" commit="b7329b495343a8f90866810b27ce2a8e2b14e458">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -389,7 +389,6 @@ v1.2 engaged switch]]></changelog>
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script displays smoothly scrolling lyrics in a separate window.\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Reapack installs bbh_lyricator_sample.rpp as a template and bbh_lyricator_sample.txt : try them.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items in a dedicated lyrics track, named "Lyrics" (not case sensitive)\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab If not existing, this track is automaticaly created.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab By default, the TEXT file browser points in the project directory.\par}
@@ -483,6 +482,22 @@ v1.2 engaged switch]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/7ee11366a54e0bad0333cd38b6a0dfea3d2c05c9/Various/bbh_lyricator.lua</source>
         <source type="projecttpl" file="bbh_lyricator_sample.rpp">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/7ee11366a54e0bad0333cd38b6a0dfea3d2c05c9/Various/bbh_lyricator_sample.rpp</source>
         <source type="projecttpl" file="bbh_lyricator_sample.txt">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/7ee11366a54e0bad0333cd38b6a0dfea3d2c05c9/Various/bbh_lyricator_sample.txt</source>
+      </version>
+      <version name="1.10" author="binbinhfr" time="2022-10-24T04:24:06Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 correct default opening path, docking problems
++ v1.2 pre color next line, 
+       separate auto_resize options for playing and recording
++ v1.3 possibility to customize colors.
++ v1.4 option to choose number of visible lines before and after current one.
++ v1.5 dependancies checking at startup, 
++ v1.6 directory separator by OS
++ v1.7 variable length defer loop
++ v1.8 various code cleaning
++ v1.10 provides 2 sample files]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator.lua</source>
+        <source type="projecttpl" file="bbh_lyricator_sample.rpp">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator_sample.rpp</source>
+        <source type="projecttpl" file="bbh_lyricator_sample.txt">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator_sample.txt</source>
       </version>
     </reapack>
     <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
