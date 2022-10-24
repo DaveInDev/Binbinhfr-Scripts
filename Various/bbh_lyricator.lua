@@ -1,6 +1,6 @@
 -- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.9
+-- @version 1.10
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -15,7 +15,7 @@
 --    + v1.6 directory separator by OS
 --    + v1.7 variable length defer loop
 --    + v1.8 various code cleaning
---    + v1.9 provides 2 sample files
+--    + v1.10 provides 2 sample files
 -- @license GPL v3
 -- @reaper 6.6x
 -- @provides
@@ -23,7 +23,6 @@
 --   [projecttpl] bbh_lyricator_sample.txt
 -- @about
 --   + This script displays smoothly scrolling lyrics in a separate window.
---   + Reapack installs bbh_lyricator_sample.rpp as a template and bbh_lyricator_sample.txt : try them.
 --   + Lyrics are imported from a TEXT file (one sentence per line, empty lines are excluded) in the form of media items 
 --     in a dedicated lyrics track, named "Lyrics" (not case sensitive)
 --   + If not existing, this track is automaticaly created.
