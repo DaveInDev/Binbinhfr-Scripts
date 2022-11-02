@@ -1,12 +1,12 @@
 -- @description Legato notes to avoid overlapping notes while keeping chords (selected items or notes)
 -- @author binbinhfr
--- @version 1.2
+-- @version 1.3
 -- @links
 --   Repository: https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
 -- @changelog
 --    + v1.0 initial release
 --    + v1.1 can be used on selected notes in midi editor
---    + v1.2 if launched a second time on the same item, the notes are not only shortened but also extended
+--    + v1.3 if launched a second time on the same item, the notes are not only shortened but also extended
 -- @license GPL v3
 -- @reaper 6.6x
 -- @about
@@ -60,7 +60,6 @@ function legato_take(take, all_notes, do_extend)
     local retval, nb_notes, _ = reaper.MIDI_CountEvts( take )      
     local last_note = -1
     local last_start = 0
-    local pitch_to_check, n_note
    
     msg("new take " .. test(all_notes,"y","n") .. test(do_extend,"y","n") )
 
@@ -75,8 +74,8 @@ function legato_take(take, all_notes, do_extend)
         local retval, selected, muted, startppqpos, endppqpos, chan, pitch, vel = reaper.MIDI_GetNote(take, n_note)
        
         if(retval and (all_notes or selected)) then
-          msg("last_start=" .. last_start)            
-          msg("note id=" .. n_note .. " start=" .. tostring(startppqpos) .. " end=" .. tostring(endppqpos) .. " pitch=" .. tostring(pitch) .. " vel=" .. tostring(vel))
+          --msg("last_start=" .. last_start)            
+          --msg("note id=" .. n_note .. " start=" .. tostring(startppqpos) .. " end=" .. tostring(endppqpos) .. " pitch=" .. tostring(pitch) .. " vel=" .. tostring(vel))
          
           if( startppqpos - last_start > threshold) then
             -- next note is far from current playing notes, so trim or extend previous ones if necessary
@@ -90,12 +89,12 @@ function legato_take(take, all_notes, do_extend)
                 if(retval2) then
                   if( endppqpos2 > startppqpos ) then
                     reaper.MIDI_SetNote(take,n_note_to_trim,selected2,muted2,startppqpos2,startppqpos,chan2, pitch2, vel2,true)
-                    msg("shorten=" .. n_note_to_trim)            
+                    --msg("shorten=" .. n_note_to_trim)            
                   elseif( do_extend and endppqpos2 < startppqpos) then
                     reaper.MIDI_SetNote(take,n_note_to_trim,selected2,muted2,startppqpos2,startppqpos,chan2, pitch2, vel2,true)
-                    msg("extend=" .. n_note_to_trim)    
+                    --msg("extend=" .. n_note_to_trim)    
                   else
-                    msg("untouched=" .. n_note_to_trim)            
+                    --msg("untouched=" .. n_note_to_trim)            
                   end
                 end
               end
@@ -130,7 +129,9 @@ arrangeview = reaper.JS_Window_FindChildByID( reaper.GetMainHwnd(), 1000)
 midiview = reaper.JS_Window_FindChild(reaper.MIDIEditor_GetActive(), "midiview", true)
 focused = reaper.JS_Window_GetFocus()
 
-msg("", true)
+-- msg("", true)
+
+local done = false
    
 reaper.PreventUIRefresh(1)
 
@@ -149,12 +150,15 @@ if focused == midiview then
   local second_pass = ( string.find(guids_last,guid) ~= nil );
  
   legato_take(take,false,second_pass)
+
+  done = true
  
-  msg(guids)
+  msg("guids:" .. guids)
   reaper.SetExtState(extension, "last_items_guids", guids, false )
  
   reaper.Undo_OnStateChange("Legato selected notes")
-elseif focused == arrangeview or debug then
+
+elseif focused == arrangeview then
   msg("arr")
   local nb_items = reaper.CountSelectedMediaItems(0)
  
@@ -165,22 +169,28 @@ elseif focused == arrangeview or debug then
       guid = guid:gsub("-","")
       guids = guids .. guid
     end
+    
     local second_pass = ( string.find(guids_last,guid) ~= nil );
-
     local nb_takes = reaper.CountTakes(item)
    
     for t = 0, nb_takes-1 do
       local take = reaper.GetTake(item, t)
       legato_take(take,true,second_pass)
     end
+
+    done = true
   end
  
-  msg(guids)
+  msg("guids:" .. guids)
   reaper.SetExtState(extension, "last_items_guids", guids, false )
  
   reaper.Undo_OnStateChange("Legato notes in selected items")
-else
+end
+
+if not done then
+  -- if runned on no items, reset last items
   reaper.SetExtState(extension, "last_items_guids", "", false )
+  msg("guids:" .. guids)
 end
    
 reaper.PreventUIRefresh(-1)
