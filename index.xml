@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="b7329b495343a8f90866810b27ce2a8e2b14e458">
+<index version="1" name="BinbinHfr Scripts" commit="c2f30ca5163f82002e979b35b4b191957c72f7b0">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -106,6 +106,22 @@
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/9dae524d9635ab2c1b56ab1e6349fb3110f9d1e3/Item%20Editing/bbh_clean_sustain_cc.lua</source>
       </version>
     </reapack>
+    <reapack name="bbh_delete_all_sysex.lua" type="script" desc="Delete all sysex in the project's MIDI items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Delete all sysex in the project's MIDI items\sa180\par}
+}
+]]></description>
+        <link rel="website" href="https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml">Repository:</link>
+      </metadata>
+      <version name="1.0" author="binbinhfr" time="2022-11-02T14:43:17Z">
+        <changelog><![CDATA[+ v1.0 initial release]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/c2f30ca5163f82002e979b35b4b191957c72f7b0/Item%20Editing/bbh_delete_all_sysex.lua</source>
+      </version>
+    </reapack>
     <reapack name="bbh_legato_notes.lua" type="script" desc="Legato notes to avoid overlapping notes while keeping chords (selected items or notes)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -132,6 +148,12 @@
 + v1.1 can be used on selected notes in midi editor
 + v1.2 if launched a second time on the same item, the notes are not only shortened but also extended]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/055994cd0b52ace21fec6afdb65d5df4fcedb1ed/Item%20Editing/bbh_legato_notes.lua</source>
+      </version>
+      <version name="1.3" author="binbinhfr" time="2022-11-02T14:41:30Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor
++ v1.3 if launched a second time on the same item, the notes are not only shortened but also extended]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/567661ced55b057c6325831b35586a8d4d04a037/Item%20Editing/bbh_legato_notes.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_scale_notes_velocities.lua" type="script" desc="Scale notes velocities (selected items or notes)">
