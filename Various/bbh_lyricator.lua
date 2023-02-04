@@ -1,6 +1,6 @@
 -- @description Lyricator (display smoothly scrolling lyrics in a separate window)
 -- @author binbinhfr
--- @version 1.10
+-- @version 1.11
 -- @links
 --   Forum Thread https://forum.cockos.com/showthread.php?t=270738
 --   https://raw.githubusercontent.com/DaveInDev/Binbinhfr-Scripts/master/index.xml
@@ -16,6 +16,7 @@
 --    + v1.7 variable length defer loop
 --    + v1.8 various code cleaning
 --    + v1.10 provides 2 sample files
+--    + v1.11 option to use media item color to colorize the scrolling text.
 -- @license GPL v3
 -- @reaper 6.6x
 -- @provides
@@ -36,6 +37,7 @@
 --   + You can disable this behaviour with the "auto resize" options, if you want.
 --   + You can also change the fonts sizes.
 --   + You can change the colors of lines, depending on their status (reading, preparing, offline)
+--   + You also have an option to match the color of lines with the color of items
 --   + You can choose how many lines you want to see before of after the current one.
 --   + You can change the position and size of the window in both playing/stopped modes. 
 --   + You can change the default duration of a lyric item, and the default duration of the gap between lyric items.
@@ -47,6 +49,8 @@
 --   + Use the context menu (mouse right click).
 
 do_debug = false
+
+local reaper = reaper
 
 ----------------------------------------------------------------------------------------------------------
 local reaper_version = reaper.GetAppVersion()
@@ -101,11 +105,12 @@ track_lyrics = nil
 track_lyrics_name = "Lyrics"
 
 color_offline = {0.55,0.55,0.5}
-color_preparing = {0.6,0.85,0.6}
+color_preparing = {0.8,0.75,0.75}
 color_reading = {1,1,1}
+color_matching = 0
 
 nb_lines_before = 3
-nb_lines_after = 3
+nb_lines_AT_END = 3
 
 path_default = ""
 
@@ -124,6 +129,7 @@ ask_reset = false
 lyrics = {}
 starts = {}
 ends = {}
+colors = {}
 nb_lyrics = -1
 
 ----------------------------------------------------------------------------------------------------------
@@ -207,9 +213,11 @@ function get_ext_states()
   color_offline[1] = tonumber(reaper.GetExtState(extension,"color_offline1")) or color_offline[1]
   color_offline[2] = tonumber(reaper.GetExtState(extension,"color_offline2")) or color_offline[2]
   color_offline[3] = tonumber(reaper.GetExtState(extension,"color_offline3")) or color_offline[3]
+
+  color_matching = tonumber(reaper.GetExtState(extension,"color_matching")) or color_matching
   
   nb_lines_before = tonumber(reaper.GetExtState(extension,"nb_lines_before")) or nb_lines_before
-  nb_lines_after = tonumber(reaper.GetExtState(extension,"nb_lines_after")) or nb_lines_after
+  nb_lines_AT_END = tonumber(reaper.GetExtState(extension,"nb_lines_AT_END")) or nb_lines_AT_END
   
   msg_wins("init")
 end
@@ -250,8 +258,10 @@ function raz_extstate()
   reaper.DeleteExtState(extension,"color_offline2",true)
   reaper.DeleteExtState(extension,"color_offline3",true)
 
+  reaper.DeleteExtState(extension,"color_matching",true)
+
   reaper.DeleteExtState(extension,"nb_lines_before",true)
-  reaper.DeleteExtState(extension,"nb_lines_after",true)
+  reaper.DeleteExtState(extension,"nb_lines_AT_END",true)
  
   reaper.SetProjExtState(0,extension,"","")
 end
@@ -300,9 +310,11 @@ function quit()
     reaper.SetExtState(extension,"color_offline1",color_offline[1],true)
     reaper.SetExtState(extension,"color_offline2",color_offline[2],true)
     reaper.SetExtState(extension,"color_offline3",color_offline[3],true)
-    
+   
+    reaper.SetExtState(extension,"color_matching",color_matching,true)
+  
     reaper.SetExtState(extension,"nb_lines_before",nb_lines_before,true)
-    reaper.SetExtState(extension,"nb_lines_after",nb_lines_after,true)
+    reaper.SetExtState(extension,"nb_lines_AT_END",nb_lines_AT_END,true)
   end
   
   msg_wins("quit")  
@@ -338,13 +350,14 @@ end
 
 -----------------------------------------------------------------------------------------
 function read_lyrics_from_items()
-  local item, retval
+  local item, retval, col
 
   track_lyrics = find_lyrics_track()
   
   lyrics = {}
   starts = {}
   ends = {}
+  colors = {}
   nb_lyrics = 0
   
   if(track_lyrics) then
@@ -356,6 +369,18 @@ function read_lyrics_from_items()
         retval, lyrics[n_item] = reaper.GetSetMediaItemInfo_String(item,"P_NOTES","",false)
         starts[n_item] = reaper.GetMediaItemInfo_Value(item, "D_POSITION" )
         ends[n_item] =  starts[n_item] + reaper.GetMediaItemInfo_Value(item, "D_LENGTH" )
+        colors[n_item] = {}
+        col = reaper.GetMediaItemInfo_Value(item, "I_CUSTOMCOLOR" )
+        if( col == 0 ) then
+          colors[n_item][1] = color_reading[1]
+          colors[n_item][2] = color_reading[2]
+          colors[n_item][3] = color_reading[3]
+        else
+          colors[n_item][1], colors[n_item][2], colors[n_item][3] = reaper.ColorFromNative(col)
+          colors[n_item][1] = colors[n_item][1] / 256
+          colors[n_item][2] = colors[n_item][2] / 256
+          colors[n_item][3] = colors[n_item][3] / 256
+        end
       end
     end
   else
@@ -426,7 +451,7 @@ function import_lyrics(do_add)
       io.input(filename)
       
       local t = 0
-      local p, d
+      local p, d, c
       local lyrics_file = {}
   
       for l in io.lines() do
@@ -465,13 +490,17 @@ function import_lyrics(do_add)
             if item ~= nil then
               p = reaper.GetMediaItemInfo_Value(item, "D_POSITION" )
               d =  reaper.GetMediaItemInfo_Value(item, "D_LENGTH" )
+              c = reaper.GetMediaItemInfo_Value(item, "I_CUSTOMCOLOR" )
+
               if(reaper.CountTakes(item) > 0 ) then
                 reaper.DeleteTrackMediaItem(track_lyrics, item)
                 item = reaper.AddMediaItemToTrack(track_lyrics)
+
                 if(item) then
                   reaper.SetMediaItemPosition(item,p,true)
                   reaper.SetMediaItemLength(item,d,true)
                   reaper.GetSetMediaItemInfo_String(item,"P_NOTES", l,true)
+                  reaper.SetMediaItemInfo_Value(item, "I_CUSTOMCOLOR", c )
                 end
               else
                 reaper.GetSetMediaItemInfo_String(item,"P_NOTES", l,true)
@@ -520,17 +549,18 @@ function menu_ctx()
   --menu = menu .. "#LYRICATOR"
   menu = menu .. test(is_running,"#","") .. "Import lyrics text file (add)"
   menu = menu .. "|" .. test(is_running,"#","") .. "Import lyrics text file (replace)"
-  menu = menu .. "||Lyric media duration (" .. lyric_duration .. "s)"
-  menu = menu .. "|Gap between lyric medias (" .. lyric_gap .. "s)"
-  menu = menu .. "||" ..test(auto_resize_playing == 1,"!","") ..  test(is_running,"#","") .. "Auto resize (while playing)"
+  menu = menu .. "||Default lyric media duration (" .. lyric_duration .. " sec)"
+  menu = menu .. "|Default gap between lyric medias (" .. lyric_gap .. " sec)"
+  menu = menu .. "||" .. test(auto_resize_playing == 1,"!","") ..  test(is_running,"#","") .. "Auto resize (while playing)"
   menu = menu .. "|" .. test(auto_resize_recording == 1,"!","") .. test(is_running,"#","") .. "Auto resize (while recording)"
-  menu = menu .. "||Font size while stopped (" .. win_font_size[1] .. "px)" 
-  menu = menu .. "|Font size while playing (" .. win_font_size[2] .. "px)" 
+  menu = menu .. "||Font size while stopped (" .. win_font_size[1] .. " px)" 
+  menu = menu .. "|Font size while playing (" .. win_font_size[2] .. " px)" 
   menu = menu .. "||Font color (reading)" 
   menu = menu .. "|Font color (preparing)" 
   menu = menu .. "|Font color (offline)" 
-  menu = menu .. "||Number of lines before (" .. nb_lines_before .. ")" 
-  menu = menu .. "|Number of lines after (" .. nb_lines_after .. ")" 
+  menu = menu .. "|" .. test(color_matching == 1,"!","") .. "Font color matching item color" 
+  menu = menu .. "||Number of visible lines before current (" .. nb_lines_before .. ")" 
+  menu = menu .. "|Number of visible lines after current (" .. nb_lines_AT_END .. ")" 
   menu = menu .. "||" .. test(is_running,"#","") .. "Reset to default values, sizes and positions "
   
   msg(menu)
@@ -605,6 +635,11 @@ function menu_ctx()
     ask_color(color_offline)
     
   elseif choice == 12 then
+    if( not is_running ) then
+      color_matching = 1 -  color_matching
+    end
+    
+  elseif choice == 13 then
     retval, value = reaper.GetUserInputs("Number of lines before", 1, "number", tostring(nb_lines_before))
     if(retval) then 
       value = tonumber(value) or nb_lines_before
@@ -613,16 +648,16 @@ function menu_ctx()
       nb_lines_before = value
     end  
     
-  elseif choice == 13 then
-    retval, value = reaper.GetUserInputs("Number of lines after", 1, "number", tostring(nb_lines_after))
+  elseif choice == 14 then
+    retval, value = reaper.GetUserInputs("Number of lines after", 1, "number", tostring(nb_lines_AT_END))
     if(retval) then 
-      value = tonumber(value) or nb_lines_after
+      value = tonumber(value) or nb_lines_AT_END
       if(value < 0) then value = 0 end
       if(value > 16) then value = 16 end
-      nb_lines_after = value
+      nb_lines_AT_END = value
     end  
     
-  elseif choice == 14 then
+  elseif choice == 15 then
     ask_reset = true
   end
 end
@@ -747,19 +782,29 @@ function main()
       end
     end       
     
-    if( start1 < start2) then
+    if( start1 < start2 ) then
       gfx.y = gfx.y + win_font_height[win_idx] * (start2 - cursor) / (start2-start1)
     else
       gfx.y = gfx.y + win_font_height[win_idx]
     end 
      
-    for n_item = n_item_cur-nb_lines_before, n_item_cur+nb_lines_after do
-      if(n_item == n_item_cur and cursor <= end1) then
-        gfx.set(color_reading[1],color_reading[2],color_reading[3])
-      elseif(n_item == n_item_cur+1 and cursor > end1) then
-        gfx.set(color_preparing[1],color_preparing[2],color_preparing[3])
+    for n_item = n_item_cur-nb_lines_before, n_item_cur+nb_lines_AT_END do
+      if( color_matching == 1 and n_item < nb_lyrics and n_item >= 0 ) then
+        if(n_item == n_item_cur and cursor <= end1) then
+          gfx.set(colors[n_item][1], colors[n_item][2], colors[n_item][3])
+        elseif(n_item == n_item_cur+1 and cursor > end1) then
+          gfx.set(colors[n_item][1]*0.75, colors[n_item][2]*0.75, colors[n_item][3]*0.75)
+        else
+          gfx.set(colors[n_item][1]*0.55, colors[n_item][2]*0.55, colors[n_item][3]*0.55)
+        end
       else
-        gfx.set(color_offline[1],color_offline[2],color_offline[3])
+        if(n_item == n_item_cur and cursor <= end1) then
+          gfx.set(color_reading[1],color_reading[2],color_reading[3])
+        elseif(n_item == n_item_cur+1 and cursor > end1) then
+          gfx.set(color_preparing[1],color_preparing[2],color_preparing[3])
+        else
+          gfx.set(color_offline[1],color_offline[2],color_offline[3])
+        end
       end
 
       if(n_item < 0) then
@@ -767,12 +812,13 @@ function main()
         gfx.y = gfx.y + win_font_height[win_idx]
       elseif(n_item < nb_lyrics) then
         gfx.printf( "%s", lyrics[n_item] )
+        -- gfx.printf( "%s %d %d %d", lyrics[n_item], colors[n_item][1], colors[n_item][2], colors[n_item][3] )
         gfx.x = 10
         gfx.y = gfx.y + win_font_height[win_idx]
       end
     end
   else
-    gfx.set(color_reading[1],color_reading[2],color_reading[3])
+    gfx.set(color_reading[1], color_reading[2], color_reading[3])
     
     gfx.x = 10
     gfx.y = 10
