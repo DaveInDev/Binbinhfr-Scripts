@@ -1,44 +1,4 @@
-<REAPER_PROJECT 0.1 "6.68/win64" 1666585037
-  TITLE "Lyricator sample"
-  AUTHOR binbinhfr
-  <NOTES 1 1
-    |- In the actions list, run Lyricator: it opens the Lyricator window.
-    |- In the Reaper project, Lyricator uses the special dedicated "Lyrics" track and 
-    |  the empty items in it, to display lyrics along with the music of the other tracks.
-    |- Check Lyricator context menu (mouse right click).
-    |- Lyrics are imported from a TXT file (one sentence per line, empty lines are 
-    |  excluded) ; check the bbh_lyricator_sample.txt file provided in the 
-    |  templates directory:  it contains lyrics that were importing to create the 
-    |  sample project.
-    |- If not existing, the Lyrics track is automaticaly created.
-    |- By default, the TXT file browser points in the project directory.
-    |- During import, lyrics can be added at the end of the existing lyrics as new items, 
-    |  or can replace the existing ones.
-    |- After import, you can move and resize items to synchronize currently displayed 
-    |  lyrics with the underlying music.
-    |- The currently displayed lyric lines depend on the position of the edit or play 
-    |  cursor on the timeline.
-    |- By default, the size of the lyrics window becomes bigger when the project 
-    |  is playing, to easily read the lyrics from your recording position, far from 
-    |  the screen.
-    |- On the contrary, when the project is stopped, the window size is reduced 
-    |  to allow easy editing of the tracks underneath.
-    |- You can disable this behaviour with the "auto resize" options, if you want.
-    |- You can also change the fonts sizes.
-    |- You can change the colors of lines, depending on their status (reading, 
-    |  preparing, offline)
-    |- You can choose how many lines you want to see before of after the current one.
-    |- You can change the position and size of the window in both playing/stopped modes. 
-    |- You can change the default duration of a lyric item, and the default duration 
-    |  of the gap between lyric items.
-    |- All these choices/options are memorized for the next reaper session.
-    |- Note that the first track called "Lyrics" is taken into account, so you can have 
-    |  several tracks scalled "Lyrics";  just put the active one in the upper position.
-    |- To avoid useless cpu work, note that, if you modify the lyric track during playback, 
-    |  the display is not updated. You have to stop and resume playback to refresh 
-    |  the lyrics.
-    |- Use the context menu (mouse right click).
-  >
+<REAPER_PROJECT 0.1 "6.74/win64" 1675423656
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 200
@@ -54,9 +14,9 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 5
-  CURSOR 2.60869565217391
-  ZOOM 11.44698627624748 0 0
-  VZOOMEX 16 0
+  CURSOR 0
+  ZOOM 8.27228653049877 0 0
+  VZOOMEX 12 0
   USE_REC_CFG 0
   RECMODE 1
   SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
@@ -117,6 +77,15 @@
     SHOW 0
     LASTSEL 0
     DOCKED 0
+    BYPASS 0 0 0
+    <VST "VST: ReaLimit (Cockos)" realimit.dll 0 "" 1919708532<565354726C6D747265616C696D697400> ""
+      dG1scu5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAMAAAAAEAAAAAABAA
+      AwAAAEAAAACgmZmZmZkVwADNzMzMzNy/AgAAAAAAAAAAAAAAAAAAAD+fduMQw8Y/
+      AFByb2dyYW0gMQAQAAAA
+    >
+    FLOATPOS 0 0 0 0
+    FXID {784445A6-1901-4F90-B6FA-586EFCB8C59A}
+    WAK 0 0
   >
   <MASTERPLAYSPEEDENV
     EGUID {A2F0D46C-965A-417A-B4CE-F11D494F440E}
@@ -137,7 +106,7 @@
   <PROJBAY
   >
   <TRACK {792423C0-7251-4627-8F54-2205C049DC8D}
-    NAME "Cheesy Piano"
+    NAME "Piano ?"
     PEAKCOL 33521664
     BEAT -1
     AUTOMODE 0
@@ -148,10 +117,10 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
-    SEL 1
+    SEL 0
     REC 0 5088 1 0 1 0 0 0
     VU 2
-    TRACKHEIGHT 200 0 0 0 0 0
+    TRACKHEIGHT 0 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -170,20 +139,11 @@
       BYPASS 0 0 0
       <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321<5653547265737972656173796E746800> ""
         eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAABEAAAAAAAAAAAAEAA=
-        776t3g3wrd5vEgM8zczMPQAAAD8AAAA/AABAPxqqtT4I/QE8zczMPQAAAD8aqrU+AAAAP4mIAD8AAAAAAAAAAAAAAAA=
-        AAAQAAAA
+        776t3g3wrd4nUrw7AP+UPdv5/j7dJMY+0SI7P14x5T4I/QE8AAAAAAAAAD+01Ms+exROPwAAAD8AAAAAAAAAAAAAAAA=
+        AFByb2dyYW0gMQAQAAAA
       >
-      FLOATPOS 997 314 345 461
+      FLOATPOS 24 52 345 461
       FXID {F1E1D333-2237-4600-8C80-5EDEE6B4A02A}
-      WAK 0 0
-      BYPASS 0 0 0
-      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321<5653547265737972656173796E746800> ""
-        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAABEAAAAAAAAAAAAEAA=
-        776t3g3wrd5vEoM7CtejPQAAAD8AAAA/mpkZPxqqtT4zwiI8zczMPQAAAD+b6KE+AABAP+/u/j4AAAAAAAAAAAAAAAA=
-        AAAQAAAA
-      >
-      FLOATPOS 1463 330 345 461
-      FXID {A15940F0-4096-4945-9839-BF404CAF0B06}
       WAK 0 0
       BYPASS 0 0 0
       <VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729<56535472656571726561657100000000> ""
@@ -1574,10 +1534,10 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
-    SEL 0
+    SEL 1
     REC 0 5088 1 0 1 0 0 0
     VU 2
-    TRACKHEIGHT 130 0 0 0 0 0
+    TRACKHEIGHT 0 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -1592,19 +1552,19 @@
     <ITEM
       POSITION 4.1304347826087
       SNAPOFFS 0
-      LENGTH 4.23188405797101
+      LENGTH 4.22955731208368
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {EFC560DA-42D5-487A-86E1-76E987659625}
-      IID 1600
+      IGUID {D1C71908-49AE-4C02-AE78-373A7D41B3E0}
+      IID 1675
       <NOTES
         |Mama, take this badge off of me
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 11.08695652173913
@@ -1612,50 +1572,50 @@
       LENGTH 4.34782608695652
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {71FAEFD5-831E-4C56-96B1-2035CDCB050A}
-      IID 1601
+      IGUID {F9F71DDB-EA25-43BD-A6C1-DB7E4483C54A}
+      IID 1676
       <NOTES
         |I can't use it anymore
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 18.04347826086957
       SNAPOFFS 0
-      LENGTH 4.23188405797101
+      LENGTH 4.34782608695652
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {54E87E04-4F23-4E94-AB36-2483724CEFB0}
-      IID 1602
+      IGUID {7469DB2A-F740-420D-BE9C-99B329E8106E}
+      IID 1677
       <NOTES
         |It's gettin' dark, too dark to see
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 25
       SNAPOFFS 0
-      LENGTH 4.23188405797102
+      LENGTH 4.1304347826087
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {D14A1876-918F-4BFD-AB0F-8C45DC13CEC2}
-      IID 1603
+      IGUID {2CE0D077-D880-466F-A0A3-109B477E3908}
+      IID 1678
       <NOTES
         |I feel like I'm knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 31.95652173913043
@@ -1663,16 +1623,17 @@
       LENGTH 3.69565217391304
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 20988159 R
       SEL 0
-      IGUID {CC902F49-96B6-483A-91B2-37FAB4DF1F52}
-      IID 1604
+      IGUID {913F4454-6611-4DC7-80EF-26E2CF0E87A3}
+      IID 1679
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 38.91304347826087
@@ -1680,16 +1641,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 20988159 R
       SEL 0
-      IGUID {63571AEA-8642-475B-84E4-2FF743C552C1}
-      IID 1605
+      IGUID {D16A8407-0304-4A86-89A0-A428FAE463FA}
+      IID 1680
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 45.8695652173913
@@ -1697,16 +1659,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 20988159 R
       SEL 0
-      IGUID {CC67E0BF-118A-49E0-9705-E73A16DC10A2}
-      IID 1606
+      IGUID {080E71F0-6A8C-49A8-B5BC-B54BB53944A4}
+      IID 1681
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 52.82608695652174
@@ -1714,16 +1677,17 @@
       LENGTH 3.69565217391304
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 20988159 R
       SEL 0
-      IGUID {8E9744EF-4282-496F-9FC9-BBB2199F002E}
-      IID 1607
+      IGUID {73E4E0BD-CE4B-4DB1-892A-D9EBE375B706}
+      IID 1682
       <NOTES
         |Just like so many times before...
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 59.78260869565217
@@ -1731,16 +1695,16 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {BDCAA972-8E37-406F-9D43-55519A23F3AA}
-      IID 1608
+      IGUID {6E534CF8-A339-43AF-824E-471DA03107D1}
+      IID 1683
       <NOTES
         |Mama, put my guns in the ground
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 66.73913043478261
@@ -1748,16 +1712,16 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {DB2DDA52-C83A-46BC-A799-4FB7515DAF5B}
-      IID 1609
+      IGUID {03BEDFF3-D012-454A-BD05-1BD0D1E1E677}
+      IID 1684
       <NOTES
         |I can't shoot them anymore
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 73.69565217391305
@@ -1765,16 +1729,16 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {5A654D7F-EAF4-48EC-A681-E497C05C8005}
-      IID 1610
+      IGUID {14417F02-D069-4E0C-946E-2685BC976C87}
+      IID 1685
       <NOTES
         |That long black cloud is comin' down
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 80.65217391304348
@@ -1782,16 +1746,16 @@
       LENGTH 3.69565217391303
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
       SEL 0
-      IGUID {D11D2D09-70DF-4934-ADB5-A0497FA4EFD8}
-      IID 1611
+      IGUID {548879C6-48BD-4677-8010-D5F779D97B31}
+      IID 1686
       <NOTES
         |I feel like I'm knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 87.60869565217391
@@ -1799,16 +1763,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 19070865 R
       SEL 0
-      IGUID {C7D6B085-8442-4598-BF81-690A09B55619}
-      IID 1612
+      IGUID {64E68B27-70B2-4A62-A226-5D43BCFA5E99}
+      IID 1687
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 94.56521739130434
@@ -1816,16 +1781,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 19070865 R
       SEL 0
-      IGUID {55DC13E2-A779-4984-82C9-9F480A19C6FC}
-      IID 1613
+      IGUID {D743EA40-4201-4EBE-85A5-D0E471F086B2}
+      IID 1688
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 101.52173913043478
@@ -1833,16 +1799,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 19070865 R
       SEL 0
-      IGUID {151E1FC9-B942-40CE-BEDA-92B5CCC620DA}
-      IID 1614
+      IGUID {436F2D88-72BF-4DD7-8558-72BDE79912EA}
+      IID 1689
       <NOTES
         |Knock, knock, knockin' on heaven's door
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
     <ITEM
       POSITION 108.47826086956522
@@ -1850,16 +1817,17 @@
       LENGTH 3.69565217391305
       LOOP 1
       ALLTAKES 0
-      FADEIN 1 0.031739 0 1 0 0 0
-      FADEOUT 1 0.031739 0 1 0 0 0
+      FADEIN 1 0.03 0 1 0 0 0
+      FADEOUT 1 0.03 0 1 0 0 0
       MUTE 0 0
+      COLOR 19070865 R
       SEL 0
-      IGUID {D4243389-8E3D-4885-AC95-08719698E48F}
-      IID 1615
+      IGUID {C4828228-AB8A-412C-A16A-B201AE766125}
+      IID 1690
       <NOTES
         |Just like so many times before...
       >
-      IMGRESOURCEFLAGS 0
+      IMGRESOURCEFLAGS 3
     >
   >
   <EXTENSIONS
