@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="c2f30ca5163f82002e979b35b4b191957c72f7b0">
+<index version="1" name="BinbinHfr Scripts" commit="1d2c191c6ac94c5df5518a21d407ec900af5f69a">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -422,6 +422,7 @@ v1.2 engaged switch]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can disable this behaviour with the "auto resize" options, if you want.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can also change the fonts sizes.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the colors of lines, depending on their status (reading, preparing, offline)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You also have an option to match the color of lines with the color of items\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can choose how many lines you want to see before of after the current one.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the position and size of the window in both playing/stopped modes.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab You can change the default duration of a lyric item, and the default duration of the gap between lyric items.\par}
@@ -520,6 +521,23 @@ v1.2 engaged switch]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator.lua</source>
         <source type="projecttpl" file="bbh_lyricator_sample.rpp">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator_sample.rpp</source>
         <source type="projecttpl" file="bbh_lyricator_sample.txt">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/b7329b495343a8f90866810b27ce2a8e2b14e458/Various/bbh_lyricator_sample.txt</source>
+      </version>
+      <version name="1.11" author="binbinhfr" time="2023-02-04T11:35:32Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 correct default opening path, docking problems
++ v1.2 pre color next line, 
+       separate auto_resize options for playing and recording
++ v1.3 possibility to customize colors.
++ v1.4 option to choose number of visible lines before and after current one.
++ v1.5 dependancies checking at startup, 
++ v1.6 directory separator by OS
++ v1.7 variable length defer loop
++ v1.8 various code cleaning
++ v1.10 provides 2 sample files
++ v1.11 option to use media item color to colorize the scrolling text.]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1d2c191c6ac94c5df5518a21d407ec900af5f69a/Various/bbh_lyricator.lua</source>
+        <source type="projecttpl" file="bbh_lyricator_sample.rpp">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1d2c191c6ac94c5df5518a21d407ec900af5f69a/Various/bbh_lyricator_sample.rpp</source>
+        <source type="projecttpl" file="bbh_lyricator_sample.txt">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/1d2c191c6ac94c5df5518a21d407ec900af5f69a/Various/bbh_lyricator_sample.txt</source>
       </version>
     </reapack>
     <reapack name="bbh_reload_project.lua" type="script" desc="Reload project (without saving it)">
