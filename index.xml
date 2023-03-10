@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BinbinHfr Scripts" commit="1d2c191c6ac94c5df5518a21d407ec900af5f69a">
+<index version="1" name="BinbinHfr Scripts" commit="c94dfef825bff94cc9bec4d41016905d448a5c04">
   <category name="Arrange">
     <reapack name="bbh_goto_last_track.lua" type="script" desc="Go to last track (skip invisible)">
       <metadata>
@@ -163,6 +163,7 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab This script scales notes velocities between min and max values (that can be outside the 0..127 range)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab and possibly add a random variation to humanize the selection.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab Can be used on selected items in the arrange view, or selected notes in the MIDI editor\sa180\par}
 }
 ]]></description>
@@ -182,6 +183,14 @@
 + v1.1 can be used on selected notes in midi editor
 + v1.2 check JS_Reascript installation]]></changelog>
         <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/103f81954c0dcc97c7bfc00ca03e2fac2de4488c/Item%20Editing/bbh_scale_notes_velocities.lua</source>
+      </version>
+      <version name="1.5" author="binbinhfr" time="2023-03-10T16:08:13Z">
+        <changelog><![CDATA[+ v1.0 initial release
++ v1.1 can be used on selected notes in midi editor
++ v1.3 check JS_Reascript installation
++ v1.4 better detection of arrangeview
++ v1.5 add a possible random varition]]></changelog>
+        <source main="main">https://github.com/DaveInDev/Binbinhfr-Scripts/raw/c94dfef825bff94cc9bec4d41016905d448a5c04/Item%20Editing/bbh_scale_notes_velocities.lua</source>
       </version>
     </reapack>
     <reapack name="bbh_transpose_notes.lua" type="script" desc="Transpose selected midi notes by semitones (selected items or notes)">
